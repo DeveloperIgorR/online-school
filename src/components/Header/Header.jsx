@@ -1,13 +1,12 @@
-import { PageHeader, Divider } from 'antd'
+import { PageHeader} from 'antd'
 
 const TopHeader = () => {
     return (
-        <>
+        
         <PageHeader            
             title="Студенты"            
         />
-        <Divider/>
-        </>
+        
     )
 }
 

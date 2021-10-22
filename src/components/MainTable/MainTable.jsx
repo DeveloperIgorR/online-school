@@ -9,6 +9,7 @@ const MainTable = () => {
             Telegram: '@pokemon',
             Instagram:'@pokemon',
             date: '31.12.2021',
+            login:'pokemon.tut',
             module:['React']
         },
         {
@@ -16,6 +17,7 @@ const MainTable = () => {
             name:'okemon',
             Telegram: '@okemon',
             Instagram:'@okemon',
+            login:'okemon.tut',
             date: '31.12.2021',
             module:['NodeJS']
         }
@@ -39,6 +41,11 @@ const MainTable = () => {
           key: 'Instagram',
         },
         {
+          title: 'Логин',
+          dataIndex: 'login',
+          key: 'login',
+        },
+        {
           title: 'Название модуля',
           key: 'module',
           dataIndex: 'module',
@@ -59,12 +66,17 @@ const MainTable = () => {
           ),
         },
         {
-          title: 'Action',
+          title: 'Дата старта',
+          dataIndex: 'date',
+          key: 'date',
+        },
+        {
+          title: 'Действие',
           key: 'action',
           render: (text, record) => (
             <Space size="middle">
-              <a>Invite {record.name}</a>
-              <a>Delete</a>
+              <a>Пригласить {record.name}</a>
+              <a>Удалить</a>
             </Space>
           ),
         },
