@@ -1,20 +1,25 @@
-import { Layout, Menu, Breadcrumb } from 'antd'
+import { Layout, Menu, Breadcrumb, Row, Col  } from 'antd'
+import d from './Dashboard.module.css'
 import {  
   BellOutlined,
   
 } from '@ant-design/icons'
 import { useState } from 'react'
+import TopHeader from '../../components/Header/Header'
+import MainTable from '../../components/MainTable/MainTable'
+
 
 const Dashboard = () => {
     const { Header, Content, Footer, Sider } = Layout
     const { SubMenu } = Menu
     const[collapsed, onCollapse] = useState(false)
 
+    
     return (
         <Layout style={{ minHeight: '100vh' }}>
         <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
           <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+          <Menu  theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="1" icon={<BellOutlined />}>
               ReactDevelopersSchool
             </Menu.Item>            
@@ -40,16 +45,16 @@ const Dashboard = () => {
             </SubMenu>            
           </Menu>
         </Sider>
-        <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }} />
+        <Layout className={d.siteLayout}>
+          <Header className={d.siteLayoutBackground}>
+            <TopHeader/>          
+          </Header>
           <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb>
-            <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-              Bill is a cat.
-            </div>
+            <Row>
+                <Col xs={24} md={{span:12, offset:6}}>
+                   <MainTable/>
+                </Col>
+            </Row>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Made by ©DIR</Footer>
         </Layout>
