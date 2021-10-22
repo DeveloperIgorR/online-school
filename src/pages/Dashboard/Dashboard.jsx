@@ -7,6 +7,7 @@ import {
 import { useState } from 'react'
 import TopHeader from '../../components/Header/Header'
 import MainTable from '../../components/MainTable/MainTable'
+import { Link } from 'react-router-dom'
 
 
 const Dashboard = () => {
@@ -28,7 +29,7 @@ const Dashboard = () => {
               <Menu.Item key="4">Рейтинг благодарности</Menu.Item>              
             </SubMenu>
             <SubMenu key="sub2" title="Модули">
-              <Menu.Item key="6">Team 1</Menu.Item>
+              <Menu.Item key="6"><Link>Team 1</Link></Menu.Item>
               <Menu.Item key="8">Team 2</Menu.Item>
             </SubMenu>
             <SubMenu key="sub3" title="Теория">
