@@ -14,6 +14,15 @@ const MainTable = () => {
         },
         {
             id: Date.now(),
+            name:'pokemon',
+            Telegram: '@pokemon',
+            Instagram:'@pokemon',
+            date: '31.12.2021',
+            login:'pokemon.tut',
+            module:['React']
+        },
+        {
+            id: Date.now(),
             name:'okemon',
             Telegram: '@okemon',
             Instagram:'@okemon',
