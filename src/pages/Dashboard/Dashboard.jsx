@@ -23,28 +23,16 @@ const Dashboard = () => {
           <div  className={d.logo}>
             <h2>ReactDevelopersSchool</h2>
           </div>
-          <Menu  theme="dark" defaultSelectedKeys={['3']} mode="inline">
+          <Menu  theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item ></Menu.Item>            
             <SubMenu key="sub1" title="Все пользователи">
-              <Menu.Item key="3">Динамика студентов</Menu.Item>
-              <Menu.Item key="4">Рейтинг благодарности</Menu.Item>              
+              <Menu.Item key="1">Динамика студентов</Menu.Item>
+              <Menu.Item key="2">Рейтинг благодарности</Menu.Item>              
             </SubMenu>
-            <SubMenu key="sub2" title="Модули">
-              <Menu.Item key="6"><Link> Team 1</Link> </Menu.Item>
-              <Menu.Item key="8">Team 2</Menu.Item>
-            </SubMenu>
-            <SubMenu key="sub3" title="Теория">
-              <Menu.Item key="9">Team 1</Menu.Item>
-              <Menu.Item key="10">Team 2</Menu.Item>
-            </SubMenu>
-            <SubMenu key="sub4" title="Задачи">
-              <Menu.Item key="11">Team 1</Menu.Item>
-              <Menu.Item key="12">Team 2</Menu.Item>
-            </SubMenu>            
-            <SubMenu key="sub5" title="Чеклисты">
-              <Menu.Item key="13">Team 1</Menu.Item>
-              <Menu.Item key="14">Team 2</Menu.Item>
-            </SubMenu>            
+            <Menu.Item key="3" title="Модули">Модули<Link to='/modules'/></Menu.Item>
+            <Menu.Item key="4" title="Теория">Теория</Menu.Item>
+            <Menu.Item key="5" title="Задачи">Задачи</Menu.Item>            
+            <Menu.Item key="6" title="Чеклисты">Чеклисты</Menu.Item>            
           </Menu>
         </Sider>
         <Layout className={d.siteLayout}>
