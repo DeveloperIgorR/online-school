@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { Redirect, Route, Switch } from "react-router"
 import { AppContext } from "../../context/context"
+import { privateRoutes, publicRoutes } from "./routes"
 
 const AppRouter = () => {
     const {isAuth,setIsAuth} = useContext(AppContext)

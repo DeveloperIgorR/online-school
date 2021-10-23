@@ -1,17 +1,22 @@
-import { BrowserRouter } from "react-router-dom";
-import { AppContext } from "./context/context";
-import Dashboard from "./pages/Dashboard/Dashboard";
-
+import { useState } from "react"
+import { BrowserRouter } from "react-router-dom"
+import AppRouter from "./components/AppRouter/AppRouter"
+import { AppContext } from "./context/context"
 
 function App() {
+const[isAuth,setIsAuth] = useState(true)
+
   return (
-    <AppContext.Provider>
+    <AppContext.Provider value={{
+      isAuth,
+      setIsAuth
+    }}>
       <BrowserRouter>
-       
+        <AppRouter />
       </BrowserRouter>
     </AppContext.Provider>
   )
-  
+
 }
 
 export default App
