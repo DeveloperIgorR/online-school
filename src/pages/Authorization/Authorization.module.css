@@ -1,8 +1,24 @@
-.loginForm {
+.name{
     max-width: 300px;
     margin-left: 45%;
-    margin-top: 300px;
+    margin-top: 20px;
+    margin-bottom: 200px;
 }
+.in{
+    max-width: 300px;
+    margin-left: 45%;
+    text-align: center;  
+}
+.loginForm {
+    max-width: 300px;
+    margin-left: 45%;  
+    margin-top: 20px;
+}
+.wrapper{
+    background-image: url(../../Assets/Images/Dcpz5-LU8AAZcJR.jpg);
+    height: 100vh;
+}
+
 .components-form-demo-normal-login .login-form-forgot {
     float: right;
 }
