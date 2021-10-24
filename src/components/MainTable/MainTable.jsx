@@ -10,7 +10,7 @@ const MainTable = () => {
             Instagram:'@pokemon',
             date: '01.11.2019',
             login:'pokemon.tut',
-            module:['React']
+            module:['HTML/CSS']
         },
         {
             id: Date.now(),
@@ -19,7 +19,7 @@ const MainTable = () => {
             Instagram:'@pokemon',
             date: '11.12.2020',
             login:'pokemon.tut',
-            module:['React']
+            module:['React','JS','HTML/CSS']
         },
         {
             id: Date.now(),
@@ -28,7 +28,7 @@ const MainTable = () => {
             Instagram:'@okemon',
             login:'okemon.tut',
             date: '05.12.2021',
-            module:['NodeJS']
+            module:['Node','Базы данных']
         }
     ]
 
@@ -61,9 +61,18 @@ const MainTable = () => {
           render: module => (
             <>
               {module.map(tag => {
-                let color = tag.length > 5 ? 'geekblue' : 'green';
-                if (tag === 'loser') {
-                  color = 'volcano';
+                let color = tag.length > 6 ? 'volcano' : 'grey';                  
+                if (tag === 'React') {
+                  color = 'geekblue';
+                }
+                if (tag === 'JS') {
+                  color = 'violet';
+                }
+                if (tag === 'Node') {
+                  color = 'green';
+                }
+                if (tag === 'Базы данных') {
+                  color = 'yellow';
                 }
                 return (
                   <Tag color={color} key={tag}>
@@ -94,7 +103,8 @@ const MainTable = () => {
               text:'Базы данных',
               value:'Базы данных'
             }            
-          ]
+          ],
+          onFilter: (value, item) => item.module.includes(value)
         },
         {
           title: 'Дата старта',
