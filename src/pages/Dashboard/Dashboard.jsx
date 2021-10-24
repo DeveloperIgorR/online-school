@@ -24,7 +24,7 @@ const Dashboard = () => {
             <h2>ReactDevelopersSchool</h2>
           </div>
           <Menu  theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item ></Menu.Item>            
+            <Menu.Item key="0" ></Menu.Item>            
             <SubMenu key="sub1" title="Все пользователи">
               <Menu.Item key="1">Динамика студентов</Menu.Item>
               <Menu.Item key="2">Рейтинг благодарности</Menu.Item>              

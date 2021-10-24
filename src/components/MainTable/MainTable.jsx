@@ -13,7 +13,7 @@ const MainTable = () => {
             module:['HTML/CSS']
         },
         {
-            id: Date.now(),
+            id: Date.now()+1,
             name:'pokemon',
             Telegram: '@pokemon',
             Instagram:'@pokemon',
@@ -22,7 +22,7 @@ const MainTable = () => {
             module:['React','JS','HTML/CSS']
         },
         {
-            id: Date.now(),
+            id: Date.now()+2,
             name:'okemon',
             Telegram: '@okemon',
             Instagram:'@okemon',
@@ -31,6 +31,8 @@ const MainTable = () => {
             module:['Node','Базы данных']
         }
     ]
+
+    const dataSource = users.map(item => ({...item,key:item.id}))
 
     const columns = [
         {
@@ -127,7 +129,13 @@ const MainTable = () => {
     return (
         <Table
           columns = {columns}
-          dataSource = {users}
+          dataSource = {dataSource}
+          pagination = {{
+            defaultPageSize:'5',
+            showSizeChanger:true,
+            pageSizeOptions:[5,10,15,20]        
+          }            
+          }
         />
     )
 }
