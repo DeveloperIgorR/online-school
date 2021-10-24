@@ -128,7 +128,7 @@ const MainTable = () => {
               {module.map(tag => {
                 let color = tag.length > 6 ? 'volcano' : 'grey';                  
                 if (tag === 'React') {
-                  color = 'geekblue';
+                  color = 'cyan';
                 }
                 if (tag === 'JS') {
                   color = 'violet';
