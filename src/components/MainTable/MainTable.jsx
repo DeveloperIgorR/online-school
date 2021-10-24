@@ -8,7 +8,7 @@ const MainTable = () => {
             name:'pokemon',
             Telegram: '@pokemon',
             Instagram:'@pokemon',
-            date: '31.12.2021',
+            date: '01.11.2019',
             login:'pokemon.tut',
             module:['React']
         },
@@ -17,7 +17,7 @@ const MainTable = () => {
             name:'pokemon',
             Telegram: '@pokemon',
             Instagram:'@pokemon',
-            date: '31.12.2021',
+            date: '11.12.2020',
             login:'pokemon.tut',
             module:['React']
         },
@@ -27,7 +27,7 @@ const MainTable = () => {
             Telegram: '@okemon',
             Instagram:'@okemon',
             login:'okemon.tut',
-            date: '31.12.2021',
+            date: '05.12.2021',
             module:['NodeJS']
         }
     ]
@@ -73,11 +73,34 @@ const MainTable = () => {
               })}
             </>
           ),
+          filters: [
+            {
+              text:'HTML/CSS',
+              value:'HTML/CSS'
+            },
+            {
+              text:'JS',
+              value:'JS'
+            },
+            {
+              text:'React',
+              value:'React'
+            },
+            {
+              text:'Node',
+              value:'Node'
+            },
+            {
+              text:'Базы данных',
+              value:'Базы данных'
+            }            
+          ]
         },
         {
           title: 'Дата старта',
           dataIndex: 'date',
           key: 'date',
+          sorter:(a,b) => new Date(a.date).getTime()- new Date(b.date).getTime()
         },
         {
           title: 'Действие',
