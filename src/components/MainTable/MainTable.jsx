@@ -1,4 +1,4 @@
-import { Table, Tag, Space } from 'antd'
+import { Table, Tag, Space,Typography } from 'antd'
 
 const MainTable = () => {
 
@@ -13,7 +13,70 @@ const MainTable = () => {
             module:['HTML/CSS']
         },
         {
-            id: Date.now()+1,
+            id: Date.now()+18,
+            name:'pokemon',
+            Telegram: '@pokemon',
+            Instagram:'@pokemon',
+            date: '11.12.2020',
+            login:'pokemon.tut',
+            module:['React','JS','HTML/CSS']
+        },
+        {
+            id: Date.now()+17,
+            name:'pokemon',
+            Telegram: '@pokemon',
+            Instagram:'@pokemon',
+            date: '11.12.2020',
+            login:'pokemon.tut',
+            module:['React','JS','HTML/CSS']
+        },
+        {
+            id: Date.now()+16,
+            name:'pokemon',
+            Telegram: '@pokemon',
+            Instagram:'@pokemon',
+            date: '11.12.2020',
+            login:'pokemon.tut',
+            module:['React','JS','HTML/CSS']
+        },
+        {
+            id: Date.now()+15,
+            name:'pokemon',
+            Telegram: '@pokemon',
+            Instagram:'@pokemon',
+            date: '11.12.2020',
+            login:'pokemon.tut',
+            module:['React','JS','HTML/CSS']
+        },
+        {
+            id: Date.now()+14,
+            name:'pokemon',
+            Telegram: '@pokemon',
+            Instagram:'@pokemon',
+            date: '11.12.2020',
+            login:'pokemon.tut',
+            module:['React','JS','HTML/CSS']
+        },
+        {
+            id: Date.now()+13,
+            name:'pokemon',
+            Telegram: '@pokemon',
+            Instagram:'@pokemon',
+            date: '11.12.2020',
+            login:'pokemon.tut',
+            module:['React','JS','HTML/CSS']
+        },
+        {
+            id: Date.now()+12,
+            name:'pokemon',
+            Telegram: '@pokemon',
+            Instagram:'@pokemon',
+            date: '11.12.2020',
+            login:'pokemon.tut',
+            module:['React','JS','HTML/CSS']
+        },
+        {
+            id: Date.now()+11,
             name:'pokemon',
             Telegram: '@pokemon',
             Instagram:'@pokemon',
@@ -127,16 +190,21 @@ const MainTable = () => {
       ]
 
     return (
+      <>
+        <Typography.Title level={3}>Таблица пользователей</Typography.Title>
         <Table
           columns = {columns}
           dataSource = {dataSource}
           pagination = {{
             defaultPageSize:'5',
             showSizeChanger:true,
-            pageSizeOptions:[5,10,15,20]        
+            pageSizeOptions:[5,10,15,20],
+            showQuickJumper:true,
+
           }            
           }
         />
+      </>  
     )
 }
 
