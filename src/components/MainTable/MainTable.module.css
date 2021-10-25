@@ -1,0 +1,13 @@
+.top{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.topRight{
+    display: flex;
+    justify-content: first baseline;
+}
+.topRight Button{
+    margin-right: 5px;   
+}

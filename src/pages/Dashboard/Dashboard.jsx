@@ -21,7 +21,7 @@ const Dashboard = () => {
         <Layout style={{ minHeight: '100vh' }}>
         <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
           <div  className={d.logo}>
-            <h2>ReactDevelopersSchool</h2>
+            <h2>ReactDevelopers</h2>
           </div>
           <Menu  theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="0" ></Menu.Item>            
