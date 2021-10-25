@@ -1,10 +1,13 @@
 import { Table, Tag, Space, Typography, Input, Button} from 'antd'
 import t from './MainTable.module.css'
+import ModalWindow from '../ModalWindow/Modal'
+import { useState } from 'react'
 const { Search } = Input
 
 const MainTable = () => {
 
   const onSearch = value => console.log(value)
+  const [visible, setVisible] = useState(false) 
 
   let users = [
     {
@@ -198,12 +201,16 @@ const MainTable = () => {
       <div className={t.top}>
         <Typography.Title level={3}>Таблица пользователей</Typography.Title>
         <div className={t.topRight} >
-        <Button type="primary">Добавить студента</Button>
+        <Button type="primary" onClick={() => setVisible(true)} >Добавить студента</Button>
         <Space direction="vertical">
           <Search placeholder="Поиск" onSearch={onSearch} style={{ width: 200 }} />
         </Space>
         </div>        
       </div>
+      <ModalWindow 
+      visible={visible}
+      setVisible={setVisible}      
+      />
       <Table
         columns={columns}
         dataSource={dataSource}
