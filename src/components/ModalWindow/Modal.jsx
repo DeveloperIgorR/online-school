@@ -23,12 +23,15 @@ const ModalWindow = ({visible, setVisible}) => {
 
     return (
         <>      
-      <Modal
+      <Modal        
         title="Добавить студента"
         visible={visible}
         onOk={handleOk}
         confirmLoading={confirmLoading}
         onCancel={handleCancel}
+        cancelText={'Отмена'}
+        okText={'Готово'}
+        width={400}
       >
         <CreateStudent/>
       </Modal>

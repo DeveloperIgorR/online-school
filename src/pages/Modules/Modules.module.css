@@ -1,5 +1,7 @@
 .title{
+    display: flex;
+    justify-content:space-between;
+    margin-left: 160px;
+    margin-right: 240px;
     margin-top: 50px;
-    margin-left: 150px;
-    padding-bottom: 20px;
 }
