@@ -1,5 +1,6 @@
 import { Modal, Button } from 'antd'
 import { useState } from 'react';
+import CreateStudent from '../CreateStudent/CreateStudent';
 
 const ModalWindow = ({visible, setVisible}) => {
 
@@ -29,7 +30,7 @@ const ModalWindow = ({visible, setVisible}) => {
         confirmLoading={confirmLoading}
         onCancel={handleCancel}
       >
-        <p>{modalText}</p>
+        <CreateStudent/>
       </Modal>
     </>
     )
