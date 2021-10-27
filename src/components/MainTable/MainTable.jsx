@@ -231,7 +231,7 @@ const MainTable = () => {
         onCancel={handleCancel}
         cancelText={'Отмена'}
         okText={'Готово'}
-        width={400}
+        width={350}
       >
         <CreateStudent />
       </Modal>

@@ -74,7 +74,7 @@ const Modules = () => {
                 onCancel={handleCancel}
                 cancelText={'Отмена'}
                 okText={'Готово'}
-                width={400}
+                width={320}
             >
                 <CreateModule />
             </Modal>
