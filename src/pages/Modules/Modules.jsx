@@ -1,12 +1,25 @@
 import React from 'react'
-import { Badge, Card, Typography, Row, Col, Button } from 'antd'
+import { Badge, Card, Typography, Row, Col, Button, Modal } from 'antd'
 import { useState } from 'react'
-import ModalWindow from '../../components/ModalWindow/Modal'
 import m from './Modules.module.css'
+import CreateModule from '../../components/CreateModule.js/CreateModule'
 
 const Modules = () => {
 
     const [visible, setVisible] = useState(false)
+    const [confirmLoading, setConfirmLoading] = useState(false)
+
+    const handleOk = () => {
+        setConfirmLoading(true)
+        setTimeout(() => {
+            setVisible(false)
+            setConfirmLoading(false)
+        }, 2000)
+    }
+
+    const handleCancel = () => {
+        setVisible(false)
+    }
 
     return (
         <>
@@ -52,10 +65,19 @@ const Modules = () => {
                     </Badge.Ribbon>
                 </Col>
             </Row>
-            <ModalWindow
+            <Modal
                 visible={visible}
                 setVisible={setVisible}
-            />
+                title="Добавить модуль"
+                onOk={handleOk}
+                confirmLoading={confirmLoading}
+                onCancel={handleCancel}
+                cancelText={'Отмена'}
+                okText={'Готово'}
+                width={400}
+            >
+                <CreateModule />
+            </Modal>
         </>
     )
 }

@@ -1,7 +1,6 @@
 import React from 'react'
-import { Table, Tag, Space, Typography, Input, Button } from 'antd'
+import { Table, Tag, Space, Typography, Input, Button, Modal } from 'antd'
 import t from './MainTable.module.css'
-import ModalWindow from '../ModalWindow/Modal'
 import { useState } from 'react'
 import CreateStudent from '../CreateStudent/CreateStudent'
 const { Search } = Input
@@ -10,6 +9,20 @@ const MainTable = () => {
 
   const onSearch = value => console.log(value)
   const [visible, setVisible] = useState(false)
+  const [confirmLoading, setConfirmLoading] = useState(false)
+
+  const handleOk = () => {    
+    setConfirmLoading(true)
+    setTimeout(() => {
+    setVisible(false)
+    setConfirmLoading(false)
+    }, 2000)
+  }
+
+  const handleCancel = () => {    
+    setVisible(false)
+  }
+
 
   let users = [
     {
@@ -209,9 +222,19 @@ const MainTable = () => {
           </Space>
         </div>
       </div>
-      <ModalWindow visible={visible} setVisible={setVisible} >
+      <Modal
+        visible={visible}
+        setVisible={setVisible}
+        title="Добавить студента"
+        onOk={handleOk}
+        confirmLoading={confirmLoading}
+        onCancel={handleCancel}
+        cancelText={'Отмена'}
+        okText={'Готово'}
+        width={400}
+      >
         <CreateStudent />
-      </ModalWindow>
+      </Modal>
       <Table
         columns={columns}
         dataSource={dataSource}
