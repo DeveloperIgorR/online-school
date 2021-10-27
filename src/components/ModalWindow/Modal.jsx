@@ -3,7 +3,7 @@ import { Modal} from 'antd'
 import { useState } from 'react';
 import CreateStudent from '../CreateStudent/CreateStudent';
 
-const ModalWindow = ({visible, setVisible}) => {
+const ModalWindow = ({visible, setVisible,content}) => {
 
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState('Content of the modal');  
@@ -34,7 +34,7 @@ const ModalWindow = ({visible, setVisible}) => {
         okText={'Готово'}
         width={400}
       >
-        <CreateStudent/>
+       {content}
       </Modal>
     </>
     )

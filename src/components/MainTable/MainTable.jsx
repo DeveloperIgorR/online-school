@@ -1,14 +1,15 @@
 import React from 'react'
-import { Table, Tag, Space, Typography, Input, Button} from 'antd'
+import { Table, Tag, Space, Typography, Input, Button } from 'antd'
 import t from './MainTable.module.css'
 import ModalWindow from '../ModalWindow/Modal'
 import { useState } from 'react'
+import CreateStudent from '../CreateStudent/CreateStudent'
 const { Search } = Input
 
 const MainTable = () => {
 
   const onSearch = value => console.log(value)
-  const [visible, setVisible] = useState(false) 
+  const [visible, setVisible] = useState(false)
 
   let users = [
     {
@@ -202,16 +203,15 @@ const MainTable = () => {
       <div className={t.top}>
         <Typography.Title level={3}>Таблица пользователей</Typography.Title>
         <div className={t.topRight} >
-        <Button type="primary" onClick={() => setVisible(true)} >Добавить студента</Button>
-        <Space direction="vertical">
-          <Search placeholder="Поиск" onSearch={onSearch} style={{ width: 200 }} />
-        </Space>
-        </div>        
+          <Button type="primary" onClick={() => setVisible(true)} >Добавить студента</Button>
+          <Space direction="vertical">
+            <Search placeholder="Поиск" onSearch={onSearch} style={{ width: 200 }} />
+          </Space>
+        </div>
       </div>
-      <ModalWindow 
-      visible={visible}
-      setVisible={setVisible}      
-      />
+      <ModalWindow visible={visible} setVisible={setVisible} >
+        <CreateStudent />
+      </ModalWindow>
       <Table
         columns={columns}
         dataSource={dataSource}
