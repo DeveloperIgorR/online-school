@@ -1,3 +1,4 @@
+import React from 'react'
 import { Table, Tag, Space, Typography, Input, Button} from 'antd'
 import t from './MainTable.module.css'
 import ModalWindow from '../ModalWindow/Modal'

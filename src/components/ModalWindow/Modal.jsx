@@ -1,3 +1,4 @@
+import React from 'react'
 import { Modal, Button } from 'antd'
 import { useState } from 'react';
 import CreateStudent from '../CreateStudent/CreateStudent';

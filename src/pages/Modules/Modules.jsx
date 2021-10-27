@@ -1,3 +1,4 @@
+import React from 'react'
 import { Badge, Card, Typography, Row, Col, Button } from 'antd'
 import { useState } from 'react'
 import ModalWindow from '../../components/ModalWindow/Modal'
