@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React, { useState } from 'react'
 import { Badge, Card, Typography, Row, Col, Button, Modal } from 'antd'
 import m from './Modules.module.css'
 import CreateModule from '../../components/CreateModule.js/CreateModule'

@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React, { useState } from 'react'
 import { Table, Tag, Space, Typography, Input, Button, Modal } from 'antd'
 import t from './MainTable.module.css'
 import CreateStudent from '../CreateStudent/CreateStudent'
