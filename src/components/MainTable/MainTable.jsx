@@ -1,7 +1,6 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import { Table, Tag, Space, Typography, Input, Button, Modal } from 'antd'
 import t from './MainTable.module.css'
-import { useState } from 'react'
 import CreateStudent from '../CreateStudent/CreateStudent'
 const { Search } = Input
 
