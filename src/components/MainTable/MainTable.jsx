@@ -4,11 +4,10 @@ import t from './MainTable.module.css'
 import CreateStudent from '../CreateStudent/CreateStudent'
 const { Search } = Input
 
-const MainTable = ({students}) => {
-
-  const onSearch = value => console.log(value)
+const MainTable = ({students,setSearchName}) => {
+  
   const [visible, setVisible] = useState(false)
-  const [confirmLoading, setConfirmLoading] = useState(false)
+  const [confirmLoading, setConfirmLoading] = useState(false)  
 
   const handleOk = () => {    
     setConfirmLoading(true)
@@ -123,7 +122,7 @@ const MainTable = ({students}) => {
         <div className={t.topRight} >
           <Button type="primary" onClick={() => setVisible(true)} >Добавить студента</Button>
           <Space direction="vertical">
-            <Search placeholder="Поиск" onSearch={onSearch} style={{ width: 200 }} />
+            <Search placeholder="Поиск" onChange={event => setSearchName(event.target.value)} style={{ width: 200 }} />
           </Space>
         </div>
       </div>
