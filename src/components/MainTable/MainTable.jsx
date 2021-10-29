@@ -4,7 +4,7 @@ import t from './MainTable.module.css'
 import CreateStudent from '../CreateStudent/CreateStudent'
 const { Search } = Input
 
-const MainTable = () => {
+const MainTable = ({students}) => {
 
   const onSearch = value => console.log(value)
   const [visible, setVisible] = useState(false)
@@ -21,102 +21,8 @@ const MainTable = () => {
   const handleCancel = () => {    
     setVisible(false)
   }
-
-
-  let users = [
-    {
-      id: Date.now(),
-      name: 'pokemon',
-      Telegram: '@pokemon',
-      Instagram: '@pokemon',
-      date: '01.11.2019',
-      login: 'pokemon.tut',
-      module: ['HTML/CSS']
-    },
-    {
-      id: Date.now() + 18,
-      name: 'pokemon',
-      Telegram: '@pokemon',
-      Instagram: '@pokemon',
-      date: '11.12.2020',
-      login: 'pokemon.tut',
-      module: ['React', 'JS', 'HTML/CSS']
-    },
-    {
-      id: Date.now() + 17,
-      name: 'pokemon',
-      Telegram: '@pokemon',
-      Instagram: '@pokemon',
-      date: '11.12.2020',
-      login: 'pokemon.tut',
-      module: ['React', 'JS', 'HTML/CSS']
-    },
-    {
-      id: Date.now() + 16,
-      name: 'pokemon',
-      Telegram: '@pokemon',
-      Instagram: '@pokemon',
-      date: '11.12.2020',
-      login: 'pokemon.tut',
-      module: ['React', 'JS', 'HTML/CSS']
-    },
-    {
-      id: Date.now() + 15,
-      name: 'pokemon',
-      Telegram: '@pokemon',
-      Instagram: '@pokemon',
-      date: '11.12.2020',
-      login: 'pokemon.tut',
-      module: ['React', 'JS', 'HTML/CSS']
-    },
-    {
-      id: Date.now() + 14,
-      name: 'pokemon',
-      Telegram: '@pokemon',
-      Instagram: '@pokemon',
-      date: '11.12.2020',
-      login: 'pokemon.tut',
-      module: ['React', 'JS', 'HTML/CSS']
-    },
-    {
-      id: Date.now() + 13,
-      name: 'pokemon',
-      Telegram: '@pokemon',
-      Instagram: '@pokemon',
-      date: '11.12.2020',
-      login: 'pokemon.tut',
-      module: ['React', 'JS', 'HTML/CSS']
-    },
-    {
-      id: Date.now() + 12,
-      name: 'pokemon',
-      Telegram: '@pokemon',
-      Instagram: '@pokemon',
-      date: '11.12.2020',
-      login: 'pokemon.tut',
-      module: ['React', 'JS', 'HTML/CSS']
-    },
-    {
-      id: Date.now() + 11,
-      name: 'pokemon',
-      Telegram: '@pokemon',
-      Instagram: '@pokemon',
-      date: '11.12.2020',
-      login: 'pokemon.tut',
-      module: ['React', 'JS', 'HTML/CSS']
-    },
-    {
-      id: Date.now() + 2,
-      name: 'okemon',
-      Telegram: '@okemon',
-      Instagram: '@okemon',
-      login: 'okemon.tut',
-      date: '05.12.2021',
-      module: ['Node', 'Базы данных']
-    }
-  ]
-
-  const dataSource = users.map(item => ({ ...item, key: item.id }))
+  
+  const dataSource = students.map(item => ({ ...item, key: item._id }))
 
   const columns = [
     {

@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Layout, Menu,  Row, Col  } from 'antd'
 import d from './Dashboard.module.css'
 import TopHeader from '../../components/Header/Header'
 import MainTable from '../../components/MainTable/MainTable'
 import { Link } from 'react-router-dom'
+import { instance } from '../../services/instance'
 
 
 
@@ -11,7 +12,17 @@ const Dashboard = () => {
     const { Header, Content, Footer, Sider } = Layout
     const { SubMenu } = Menu
     const[collapsed, onCollapse] = useState(false)
+    const [students,setStudents] = useState([])
 
+    useEffect(() => {
+         getStudents()
+    },[])
+    
+    async function getStudents(){
+      const response = await instance.get(`/students`)
+      setStudents(response.data)
+      console.log(response.data)
+    }
     
     return (
         <Layout style={{ minHeight: '100vh' }}>
@@ -37,8 +48,8 @@ const Dashboard = () => {
           </Header>
           <Content style={{ margin: '0 16px' }}>
             <Row>
-                <Col xs={24} md={{span:12, offset:6}}>
-                   <MainTable/>
+                <Col xs={24} md={{span:20, offset:2}}>
+                   <MainTable students = {students}/>
                 </Col>
             </Row>
           </Content>

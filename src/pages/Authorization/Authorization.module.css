@@ -14,10 +14,6 @@
     margin-left: 45%;  
     margin-top: 20px;
 }
-.wrapper{
-    background-image: url();
-    height: 100vh;
-}
 
 .components-form-demo-normal-login .login-form-forgot {
     float: right;
