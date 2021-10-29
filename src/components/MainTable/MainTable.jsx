@@ -21,7 +21,7 @@ const MainTable = ({students}) => {
   const handleCancel = () => {    
     setVisible(false)
   }
-  
+
   const dataSource = students.map(item => ({ ...item, key: item._id }))
 
   const columns = [
@@ -54,16 +54,16 @@ const MainTable = ({students}) => {
         <>
           {module.map(tag => {
             let color = tag.length > 6 ? 'volcano' : 'grey';
-            if (tag === 'React') {
+            if (tag === "React") {
               color = 'cyan';
             }
-            if (tag === 'JS') {
+            if (tag === "JS") {
               color = 'violet';
             }
-            if (tag === 'Node') {
+            if (tag === "NODE") {
               color = 'green';
             }
-            if (tag === 'Базы данных') {
+            if (tag === "Базы данных") {
               color = 'yellow';
             }
             return (
@@ -88,8 +88,8 @@ const MainTable = ({students}) => {
           value: 'React'
         },
         {
-          text: 'Node',
-          value: 'Node'
+          text: 'NODE',
+          value: 'NODE'
         },
         {
           text: 'Базы данных',
