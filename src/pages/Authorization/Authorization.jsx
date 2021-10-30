@@ -51,7 +51,7 @@ const Authorization = () => {
                     <Button type="primary" htmlType="submit" className="login-form-button">
                         Войти
                     </Button>
-                    Или <a href="">Зарегистрироваться!</a>
+                    Или <a >Зарегистрироваться!</a>
                 </Form.Item>
             </Form>
         </>

@@ -1,4 +1,3 @@
-import React from "react"
 import Dashboard from "../../pages/Dashboard/Dashboard"
 import Modules from "../../pages/Modules/Modules"
 import Authorization from "../../pages/Authorization/Authorization"
