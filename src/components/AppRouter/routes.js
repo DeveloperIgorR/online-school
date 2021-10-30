@@ -8,5 +8,5 @@ export const privateRoutes = [
 ]
 
 export const publicRoutes = [
-    {path: '/auth', component: Authorization, exact:true},
+    // {path: '/auth', component: Authorization, exact:true},
 ]
