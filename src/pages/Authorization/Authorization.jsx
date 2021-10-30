@@ -13,47 +13,7 @@ const Authorization = () => {
         <>
             <h1 className={a.name}>ReactDevelopersSchool</h1>
             <h2 className={a.in}>Вход в личный кабинет</h2>
-            <Form
-                name="normal_login"
-                className={a.loginForm}
-                initialValues={{ remember: true }}
-                // onFinish={onFinish}
-            >
-                <Form.Item
-                    name="Логин:"
-                    rules={[{ required: true, message: 'Введите ваш Логин!' }]}
-                >
-                    <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Логин" />
-                </Form.Item>
-
-                <Form.Item
-                    name="Пароль:"
-                    rules={[{ required: true, message: 'Введите ваш Пароль!' }]}
-                >
-                    <Input
-                        prefix={<LockOutlined className="site-form-item-icon" />}
-                        type="password"
-                        placeholder="Пароль"
-                    />
-                </Form.Item>
-
-                <Form.Item>
-                    <Form.Item name="remember" valuePropName="checked" noStyle>
-                        <Checkbox>Запомнить меня</Checkbox>
-                    </Form.Item>
-
-                    <a className="login-form-forgot" >
-                        Забыли пароль?
-                    </a>
-                </Form.Item>
-
-                <Form.Item>
-                    <Button type="primary" htmlType="submit" className="login-form-button">
-                        Войти
-                    </Button>
-                    Или <a >Зарегистрироваться!</a>
-                </Form.Item>
-            </Form>
+           
         </>
     );
 }
