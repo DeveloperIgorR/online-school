@@ -14,9 +14,9 @@ const Authorization = () => {
             <h1 className={a.name}>ReactDevelopersSchool</h1>
             <h2 className={a.in}>Вход в личный кабинет</h2>
             <Form
-                name="normal_login"
+                // name="normal_login"
                 className={a.loginForm}
-                initialValues={{ remember: true }}
+                // initialValues={{ remember: true }}
             // onFinish={onFinish}
             >
                 
