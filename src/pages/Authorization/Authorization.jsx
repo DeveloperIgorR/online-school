@@ -5,9 +5,9 @@ import a from './Authorization.module.css'
 
 
 const Authorization = () => {
-    const onFinish = (values) => {
-        console.log('Received values of form: ', values);
-    };
+    // const onFinish = (values) => {
+    //     console.log('Received values of form: ', values);
+    // };
 
     return (
         <>
@@ -17,7 +17,7 @@ const Authorization = () => {
                 name="normal_login"
                 className={a.loginForm}
                 initialValues={{ remember: true }}
-                onFinish={onFinish}
+                // onFinish={onFinish}
             >
                 <Form.Item
                     name="Логин:"
