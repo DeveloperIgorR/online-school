@@ -3,7 +3,7 @@ import Modules from "../../pages/Modules/Modules"
 import Authorization from "../../pages/Authorization/Authorization"
 
 export const privateRoutes = [
-    {path: '/', component: Dashboard, exact:true},
+    // {path: '/', component: Dashboard, exact:true},
     {path: '/modules', component: Modules, exact:true},    
 ]
 
