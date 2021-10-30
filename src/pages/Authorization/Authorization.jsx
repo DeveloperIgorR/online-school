@@ -42,7 +42,7 @@ const Authorization = () => {
                         <Checkbox>Запомнить меня</Checkbox>
                     </Form.Item>
 
-                    <a className="login-form-forgot" href="">
+                    <a className="login-form-forgot" >
                         Забыли пароль?
                     </a>
                 </Form.Item>
