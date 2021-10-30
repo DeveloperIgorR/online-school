@@ -19,15 +19,7 @@ const Authorization = () => {
                 initialValues={{ remember: true }}
             // onFinish={onFinish}
             >
-                <Form.Item
-                    name="Логин:"
-                    rules={[{ required: true, message: 'Введите ваш Логин!' }]}
-                >
-                    <Input
-                        prefix={<UserOutlined />}
-                        placeholder="Логин"
-                    />
-                </Form.Item>
+                
 
                 <Form.Item
                     name="Пароль:"
