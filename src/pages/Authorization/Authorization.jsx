@@ -52,7 +52,7 @@ const Authorization = () => {
                         Войти
                     </Button>
                     Или
-                    <a >Зарегистрироваться!</a>
+                    <a >  Зарегистрироваться!</a>
                 </Form.Item>
             </Form>
         </>
