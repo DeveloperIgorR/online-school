@@ -72,6 +72,7 @@ const Dashboard = () => {
             <Col xs={24} md={{ span: 20, offset: 2 }}>
               <MainTable
                 students={students}
+                setStudents={setStudents}
                 setSearchName={setSearchName}
               />
             </Col>

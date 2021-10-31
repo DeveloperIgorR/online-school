@@ -2,22 +2,46 @@ import React, { useState } from 'react'
 import { Table, Tag, Space, Typography, Input, Button, Modal } from 'antd'
 import t from './MainTable.module.css'
 import CreateStudent from '../CreateStudent/CreateStudent'
+import { instance } from '../../services/instance'
 const { Search } = Input
 
-const MainTable = ({students,setSearchName}) => {
-  
-  const [visible, setVisible] = useState(false)
-  const [confirmLoading, setConfirmLoading] = useState(false)  
+const MainTable = ({ students, setStudents, setSearchName }) => {
 
-  const handleOk = () => {    
+  const [visible, setVisible] = useState(false)
+  const [confirmLoading, setConfirmLoading] = useState(false)
+
+  const [name, setName] = useState('')
+  const [Telegram, setTelegram] = useState('')
+  const [Instagram, setInstagram] = useState('')
+  const [date, setDate] = useState('')
+  const [login, setLogin] = useState('')
+  const [module, setModule] = useState([])
+
+  console.log(name, Telegram, Instagram, date, login, module)
+
+  async function handleOk() {
     setConfirmLoading(true)
+    try {
+      const response = await instance.post(`/students/create`, {
+        name,
+        Telegram,
+        Instagram,
+        date,
+        login,
+        module
+      })
+      setStudents(prev => [...prev, response.data])
+    }
+    catch (e) {
+      console.log(e)
+    }
     setTimeout(() => {
-    setVisible(false)
-    setConfirmLoading(false)
+      setVisible(false)
+      setConfirmLoading(false)
     }, 2000)
   }
 
-  const handleCancel = () => {    
+  const handleCancel = () => {
     setVisible(false)
   }
 
@@ -137,7 +161,14 @@ const MainTable = ({students,setSearchName}) => {
         okText={'Готово'}
         width={350}
       >
-        <CreateStudent />
+        <CreateStudent
+          name={name} setName={setName}
+          Telegram={Telegram} setTelegram={setTelegram}
+          Instagram={Instagram} setInstagram={setInstagram}
+          date={date} setDate={setDate}
+          login={login} setLogin={setLogin}
+          module={module} setModule={setModule}
+        />
       </Modal>
       <Table
         columns={columns}

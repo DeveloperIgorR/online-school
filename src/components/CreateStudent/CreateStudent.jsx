@@ -1,33 +1,25 @@
 import React from 'react'
 import { Input, Typography, Select } from 'antd'
-import { useState } from 'react/cjs/react.development'
 const { Option } = Select
 
-const CreateStudent = () => {
+const CreateStudent = (props) => {   
 
-    const [name, setName] = useState('')
-    const [telegram, setTelegram] = useState('')
-    const [instagram, setInstagram] = useState('')
-    const [date, setDate] = useState('')
-    const [login, setLogin] = useState('')
-    const [module, setModule] = useState([])
-
-    return (
+    return (  
         <>
             <Typography.Title level={5}>Имя Фамилия:</Typography.Title>
-            <Input style={{ width: 300 }} value={name} onChange={event => setName(event.target.value)} />
+            <Input style={{ width: 300 }} value={props.name} onChange={event => props.setName(event.target.value)} />
             <Typography.Title level={5}>Telegram:</Typography.Title>
-            <Input style={{ width: 300 }} value={telegram} onChange={event => setTelegram(event.target.value)} />
+            <Input style={{ width: 300 }} value={props.Telegram} onChange={event => props.setTelegram(event.target.value)} />
             <Typography.Title level={5}>Instagram:</Typography.Title>
-            <Input style={{ width: 300 }} value={instagram} onChange={event => setInstagram(event.target.value)} />
+            <Input style={{ width: 300 }} value={props.Instagram} onChange={event => props.setInstagram(event.target.value)} />
             <Typography.Title level={5}>Date of start:</Typography.Title>
-            <Input style={{ width: 300 }} value={date} onChange={event => setDate(event.target.value)} />
+            <Input style={{ width: 300 }} value={props.date} onChange={event => props.setDate(event.target.value)} />
             <Typography.Title level={5}>Mail:</Typography.Title>
-            <Input style={{ width: 300 }} value={login} onChange={event => setLogin(event.target.value)} />
+            <Input style={{ width: 300 }} value={props.login} onChange={event => props.setLogin(event.target.value)} />
             <Typography.Title level={5}>Модуль</Typography.Title>
-            <Input.Group value={module} >
+            <Input.Group  onChange={event => props.setModule([...module,event.target.value])} >
                 <Select style={{ width: 300 }}>
-                    <Option value="HTML/CSS">HTML/CSS</Option>
+                    <Option value={"HTML/CSS"}>HTML/CSS</Option>
                     <Option value="JS">JS</Option>
                     <Option value="React">React</Option>
                     <Option value="Node">Node</Option>
