@@ -15,7 +15,7 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
   const [Instagram, setInstagram] = useState('')
   const [date, setDate] = useState('')
   const [login, setLogin] = useState('')
-  const [module, setModule] = useState([])
+  const [modules, setModules] = useState([])
 
   console.log(name, Telegram, Instagram, date, login, module)
 
@@ -167,7 +167,7 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
           Instagram={Instagram} setInstagram={setInstagram}
           date={date} setDate={setDate}
           login={login} setLogin={setLogin}
-          module={module} setModule={setModule}
+          modules={modules} setModules={setModules}
         />
       </Modal>
       <Table

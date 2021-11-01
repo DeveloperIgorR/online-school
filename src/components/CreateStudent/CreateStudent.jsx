@@ -1,10 +1,12 @@
 import React from 'react'
 import { Input, Typography, Select } from 'antd'
-const { Option } = Select
 
-const CreateStudent = (props) => {   
+const CreateStudent = (props) => {
 
-    return (  
+    const options = ["HTML/CSS", "JS", "React", "Node", "Базы данных"]
+    const filteredOptions = options.filter(o => !props.modules.includes(o))
+    console.log(filteredOptions)
+    return (
         <>
             <Typography.Title level={5}>Имя Фамилия:</Typography.Title>
             <Input style={{ width: 300 }} value={props.name} onChange={event => props.setName(event.target.value)} />
@@ -17,14 +19,19 @@ const CreateStudent = (props) => {
             <Typography.Title level={5}>Mail:</Typography.Title>
             <Input style={{ width: 300 }} value={props.login} onChange={event => props.setLogin(event.target.value)} />
             <Typography.Title level={5}>Модуль</Typography.Title>
-            <Input.Group  onChange={event => props.setModule([...module,event.target.value])} >
-                <Select style={{ width: 300 }}>
-                    <Option value={"HTML/CSS"}>HTML/CSS</Option>
-                    <Option value="JS">JS</Option>
-                    <Option value="React">React</Option>
-                    <Option value="Node">Node</Option>
-                    <Option value="Базы данных">Базы данных</Option>
-                </Select>               
+            <Input.Group >
+                <Select
+                    onChange={event => props.setModules([...props.modules,event.target.value])}
+                    style={{ width: 300 }} mode="multiple"
+                    placeholder="Добавить модуль">
+                        
+                    {filteredOptions.map(item => (
+                        <Select.Option key={item} value={item}>
+                            {item}
+                        </Select.Option>
+                    ))}
+
+                </Select>
             </Input.Group>
         </>
     )
