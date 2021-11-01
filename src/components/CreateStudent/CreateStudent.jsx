@@ -25,9 +25,11 @@ const CreateStudent = (props) => {
 
             <Typography.Title level={5}>Модули</Typography.Title>
             <Select
+                mode="multiple" placeholder="Добавить модуль"
+                value={props.modules}
                 onChange={event => props.setModules([...props.modules, event.target.value])}
-                style={{ width: 300 }} mode="multiple"
-                placeholder="Добавить модуль">
+                style={{ width: 300 }}
+                >
 
                 {filteredOptions.map(item => (
                     <Select.Option key={item} value={item}>
