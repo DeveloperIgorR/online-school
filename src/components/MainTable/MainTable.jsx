@@ -15,11 +15,9 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
   const [Instagram, setInstagram] = useState('')
   const [date, setDate] = useState('')
   const [login, setLogin] = useState('')
-  const [modules, setModules] = useState([])
+  const [modules, setModules] = useState([])  
 
-  console.log(name, Telegram, Instagram, date, login, modules)
-
-  async function handleOk() {
+  async function createStudent() {
     setConfirmLoading(true)
     try {
       const response = await instance.post(`/students/create`, {
@@ -31,6 +29,12 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
         modules
       })
       setStudents(prev => [...prev, response.data])
+      setName('')
+      setTelegram('')
+      setInstagram('')
+      setDate('')
+      setLogin('')
+      setModules([])
     }
     catch (e) {
       console.log(e)
@@ -38,7 +42,7 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
     setTimeout(() => {
       setVisible(false)
       setConfirmLoading(false)
-    }, 2000)
+    }, 1000)
   }
 
   const handleCancel = () => {
@@ -132,8 +136,8 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
       key: 'action',
       render: (text, record) => (
         <Space size="middle">
-          <a>Пригласить {record.name}</a>
-          <a>Удалить</a>
+          <a>Просмотреть {record.name}</a>
+          <a>Изменить</a>
         </Space>
       ),
     },
@@ -154,7 +158,7 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
         visible={visible}
         setVisible={setVisible}
         title="Добавить студента"
-        onOk={handleOk}
+        onOk={createStudent}
         confirmLoading={confirmLoading}
         onCancel={handleCancel}
         cancelText={'Отмена'}
