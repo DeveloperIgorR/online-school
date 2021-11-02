@@ -1,0 +1,7 @@
+
+.ant-layout-sider-children {
+    min-width: 200px;
+}
+.ant-layout-sider .ant-layout-sider-dark .ant-layout-sider-has-trigger{
+    min-width: 300px;
+}

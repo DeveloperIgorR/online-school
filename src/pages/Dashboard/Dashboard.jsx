@@ -5,6 +5,7 @@ import TopHeader from '../../components/Header/Header'
 import MainTable from '../../components/MainTable/MainTable'
 import { Link } from 'react-router-dom'
 import { instance } from '../../services/instance'
+import './myLayout.css'
 
 
 
