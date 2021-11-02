@@ -17,7 +17,7 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
   const [login, setLogin] = useState('')
   const [modules, setModules] = useState([])
 
-  console.log(name, Telegram, Instagram, date, login, module)
+  console.log(name, Telegram, Instagram, date, login, modules)
 
   async function handleOk() {
     setConfirmLoading(true)
@@ -28,7 +28,7 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
         Instagram,
         date,
         login,
-        module
+        modules
       })
       setStudents(prev => [...prev, response.data])
     }
@@ -71,11 +71,11 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
     },
     {
       title: 'Название модуля',
-      key: 'module',
-      dataIndex: 'module',
-      render: module => (
+      key: 'modules',
+      dataIndex: 'modules',
+      render: modules => (
         <>
-          {module.map(tag => {
+          {modules.map(tag => {
             let color = tag.length > 6 ? 'volcano' : 'grey';
             if (tag === "React") {
               color = 'cyan';
@@ -83,7 +83,7 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
             if (tag === "JS") {
               color = 'violet';
             }
-            if (tag === "NODE") {
+            if (tag === "Node") {
               color = 'green';
             }
             if (tag === "Базы данных") {
@@ -111,8 +111,8 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
           value: 'React'
         },
         {
-          text: 'NODE',
-          value: 'NODE'
+          text: 'Node',
+          value: 'Node'
         },
         {
           text: 'Базы данных',
