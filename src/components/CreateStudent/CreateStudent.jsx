@@ -27,7 +27,7 @@ const CreateStudent = (props) => {
             <Select
                 mode="multiple" placeholder="Добавить модуль"
                 value={props.modules}
-                onChange={value => props.setModules( value)}
+                onChange={value => props.setModules(value)}
                 style={{ width: 300 }}
                 >
 

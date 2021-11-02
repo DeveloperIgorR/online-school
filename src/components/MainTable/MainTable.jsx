@@ -119,7 +119,7 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
           value: 'Базы данных'
         }
       ],
-      onFilter: (value, item) => item.module.includes(value)
+      onFilter: (value, item) => item.modules.includes(value)
     },
     {
       title: 'Дата старта',
