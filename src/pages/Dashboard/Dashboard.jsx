@@ -49,12 +49,11 @@ const Dashboard = () => {
 
   return (
     <Layout style={{minHeight: '100vh' }}>
-      <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+      <Sider  >
         <div className={d.logo}>
           <h2>ReactDevelopers</h2>
         </div>
-        <Menu  theme="dark" defaultSelectedKeys={['1']} mode="inline">
-          <Menu.Item key="0" ></Menu.Item>
+        <Menu  theme="dark" defaultSelectedKeys={['1']} mode="inline">          
           <SubMenu key="sub1" title="Все пользователи">
             <Menu.Item key="1">Динамика студентов</Menu.Item>
             <Menu.Item key="2">Рейтинг благодарности</Menu.Item>
