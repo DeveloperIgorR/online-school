@@ -11,8 +11,6 @@ module.exports = override(
             javascriptEnabled: true,
             modifyVars: {
                 "@primary-color": "#29625f",//  тут меняем стили                
-                "@layout-sider-background":"#29625f",
-                "@layout-sider-background-light":"#29625f"
             }
         }
     }),

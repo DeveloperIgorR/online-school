@@ -5,9 +5,6 @@ import TopHeader from '../../components/Header/Header'
 import MainTable from '../../components/MainTable/MainTable'
 import { Link } from 'react-router-dom'
 import { instance } from '../../services/instance'
-import './myLayout.css'
-
-
 
 const Dashboard = () => {
   const { Header, Content, Footer, Sider } = Layout
@@ -37,7 +34,11 @@ const Dashboard = () => {
 
   async function getStudentByName(serchName) {
     try {
-      const response = await instance.get(`/students/search`,{serchName})
+      const response = await instance.get(`/students/search`,{
+        params:{
+          serchName
+        }
+        })
       setStudents(response.data)
     }
     catch (e) {
@@ -47,12 +48,12 @@ const Dashboard = () => {
   }
 
   return (
-    <Layout style={{minWidth:"300px", minHeight: '100vh' }}>
-      <Sider style={{ backgroundColor:"#29625f" }}collapsible collapsed={collapsed} onCollapse={onCollapse}>
+    <Layout style={{minHeight: '100vh' }}>
+      <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
         <div className={d.logo}>
           <h2>ReactDevelopers</h2>
         </div>
-        <Menu style={{backgroundColor:"#29625f" }} theme="dark" defaultSelectedKeys={['1']} mode="inline">
+        <Menu  theme="dark" defaultSelectedKeys={['1']} mode="inline">
           <Menu.Item key="0" ></Menu.Item>
           <SubMenu key="sub1" title="Все пользователи">
             <Menu.Item key="1">Динамика студентов</Menu.Item>

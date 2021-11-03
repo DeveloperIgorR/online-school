@@ -8,4 +8,5 @@
 .logo h2{
     margin: 15px;
     color: #fff;
+    max-width: 250px;
 }

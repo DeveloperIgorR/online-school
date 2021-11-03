@@ -1,0 +1,24 @@
+
+.ant-layout-sider-trigger{
+    background: #29625f;
+    min-width: 250px;
+}
+
+.ant-layout-sider-children{
+    min-width: 250px;
+    background: #29625f;
+}
+.ant-layout-sider{
+    min-width: 250px;
+    background: #29625f;
+}
+.ant-layout-sider-dark{
+    min-width: 250px;
+    background: #29625f;
+}
+.ant-menu.ant-menu-dark{
+    background: #29625f;
+}
+.ant-menu-dark .ant-menu-inline.ant-menu-sub {
+    background: #29625f;
+}
