@@ -11,15 +11,14 @@ const Dashboard = () => {
   const { SubMenu } = Menu
   const [collapsed, onCollapse] = useState(false)
   const [students, setStudents] = useState([])
-  const [serchName, setSearchName] = useState('')
-  console.log(serchName)
+  const [serchName, setSearchName] = useState('')  
 
   useEffect(() => {
     getStudents()
   }, [])
 
   useEffect(() => {
-    getStudentByName()
+    getStudentByName(serchName)
   }, [serchName]) 
 
   async function getStudents() {
@@ -33,18 +32,13 @@ const Dashboard = () => {
   }
 
   async function getStudentByName(serchName) {
-    try {
-      const response = await instance.get(`/students/search`,{
-        params:{
-          serchName
-        }
-        })
+    try {      
+      const response = await instance.get(`/students/search/${serchName}`)      
       setStudents(response.data)
     }
     catch (e) {
       console.log(e)
-    }
-    
+    }    
   }
 
   return (
