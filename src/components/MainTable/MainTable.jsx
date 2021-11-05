@@ -45,6 +45,15 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
     }, 1000)
   }
 
+  async function updateStudent(){
+    try {
+      const response = await instance.put(`/students/update`)
+    }
+    catch (e) {
+      console.log(e)
+    }
+  }
+
   const handleCancel = () => {
     setVisible(false)
   }
@@ -137,7 +146,7 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
       render: (text, record) => (
         <Space size="middle">
           <a>Просмотреть {record.name}</a>
-          <a>Изменить</a>
+          <a onClick={updateStudent}>Изменить</a>
         </Space>
       ),
     },
