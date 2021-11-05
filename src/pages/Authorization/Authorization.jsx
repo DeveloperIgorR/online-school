@@ -9,19 +9,38 @@ import FormItem from 'antd/lib/form/FormItem'
 const Authorization = () => {
 
     const [email,setEmail] = useState('')
-    const [password,setPasword] = useState('')
+    const [password,setPassword] = useState('')
     const [visible, setVisible] = useState(false)
     const [confirmLoading, setConfirmLoading] = useState(false)
+    console.log(email,password)
     const handleCancel = () => {
         setVisible(false)
     }
 
     async function userAuth() {
-        const response = await instance.post()
+        try {
+            const response = await instance.post()
+        }
+        catch (e) {
+            console.log(e)
+        }
+        finally{
+
+        }        
     }
 
     async function createUser() {
-        const response = await instance.post()
+        try {
+            const response = await instance.post()
+        }catch (e) {
+            console.log(e)
+        }
+        finally{
+            setTimeout(() => {
+                setVisible(false)
+                setConfirmLoading(false)
+              },)
+        }        
     }
 
     return (
@@ -79,12 +98,11 @@ const Authorization = () => {
                 width={350}
             >
                 <FormItem>
-                    <Input placeholder="Введите email" />
+                    <Input placeholder="Введите email" value={email} onChange={event => setEmail(event.target.value)}/>
                 </FormItem>
                 <FormItem>
-                    <Input placeholder="Введите пароль" />
+                    <Input placeholder="Введите пароль" value={password} onChange={event => setPassword(event.target.value)}/>
                 </FormItem>
-
             </Modal>
         </>
     );
