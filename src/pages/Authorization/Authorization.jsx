@@ -1,12 +1,28 @@
 import React from 'react'
-import { Form, Input, Button, Checkbox } from 'antd'
+import { Form, Input, Button, Checkbox, Modal } from 'antd'
 import a from './Authorization.module.css'
+import { instance } from '../../services/instance'
+import { useState } from 'react/cjs/react.development'
+import FormItem from 'antd/lib/form/FormItem'
 
 
 const Authorization = () => {
-    // const onFinish = (values) => {
-    //     console.log('Received values of form: ', values);
-    // };
+
+    const [email,setEmail] = useState('')
+    const [password,setPasword] = useState('')
+    const [visible, setVisible] = useState(false)
+    const [confirmLoading, setConfirmLoading] = useState(false)
+    const handleCancel = () => {
+        setVisible(false)
+    }
+
+    async function userAuth() {
+        const response = await instance.post()
+    }
+
+    async function createUser() {
+        const response = await instance.post()
+    }
 
     return (
         <>
@@ -16,13 +32,12 @@ const Authorization = () => {
                 name="normal_login"
                 className={a.loginForm}
                 initialValues={{ remember: true }}
-            // onFinish={onFinish}
             >
                 <Form.Item
                     name="Логин:"
                     rules={[{ required: true, message: 'Введите ваш Логин!' }]}
                 >
-                    <Input                       
+                    <Input
                         placeholder="Логин"
                     />
                 </Form.Item>
@@ -31,7 +46,7 @@ const Authorization = () => {
                     name="Пароль:"
                     rules={[{ required: true, message: 'Введите ваш Пароль!' }]}
                 >
-                    <Input                        
+                    <Input
                         type="password"
                         placeholder="Пароль"
                     />
@@ -45,13 +60,32 @@ const Authorization = () => {
                 </Form.Item>
 
                 <Form.Item>
-                    <Button type="primary" htmlType="submit">
+                    <Button onClick={() => userAuth()} type="primary" htmlType="submit">
                         Войти
                     </Button>
-                        Или
-                    <a >  Зарегистрироваться!</a>
+                    Или
+                    <a onClick={() => setVisible(true)}> Зарегистрироваться!</a>
                 </Form.Item>
             </Form>
+            <Modal
+                visible={visible}
+                setVisible={setVisible}
+                title="Зарегистрироваться"
+                onOk={createUser}
+                confirmLoading={confirmLoading}
+                onCancel={handleCancel}
+                cancelText={'Отмена'}
+                okText={'Готово'}
+                width={350}
+            >
+                <FormItem>
+                    <Input placeholder="Введите email" />
+                </FormItem>
+                <FormItem>
+                    <Input placeholder="Введите пароль" />
+                </FormItem>
+
+            </Modal>
         </>
     );
 }

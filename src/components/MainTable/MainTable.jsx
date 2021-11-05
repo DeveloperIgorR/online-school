@@ -9,6 +9,9 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
 
   const [visible, setVisible] = useState(false)
   const [confirmLoading, setConfirmLoading] = useState(false)
+  const handleCancel = () => {
+    setVisible(false)
+  }
 
   const [name, setName] = useState('')
   const [Telegram, setTelegram] = useState('')
@@ -52,11 +55,7 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
     catch (e) {
       console.log(e)
     }
-  }
-
-  const handleCancel = () => {
-    setVisible(false)
-  }
+  }  
 
   const dataSource = students.map(item => ({ ...item, key: item._id }))
 
