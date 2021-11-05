@@ -1,6 +1,5 @@
 import React from 'react'
 import { Form, Input, Button, Checkbox } from 'antd'
-// import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import a from './Authorization.module.css'
 
 
@@ -23,8 +22,7 @@ const Authorization = () => {
                     name="Логин:"
                     rules={[{ required: true, message: 'Введите ваш Логин!' }]}
                 >
-                    <Input
-                        // prefix={<UserOutlined />}
+                    <Input                       
                         placeholder="Логин"
                     />
                 </Form.Item>
@@ -33,8 +31,7 @@ const Authorization = () => {
                     name="Пароль:"
                     rules={[{ required: true, message: 'Введите ваш Пароль!' }]}
                 >
-                    <Input
-                        // prefix={<LockOutlined />}
+                    <Input                        
                         type="password"
                         placeholder="Пароль"
                     />
@@ -51,7 +48,7 @@ const Authorization = () => {
                     <Button type="primary" htmlType="submit">
                         Войти
                     </Button>
-                    Или
+                        Или
                     <a >  Зарегистрироваться!</a>
                 </Form.Item>
             </Form>

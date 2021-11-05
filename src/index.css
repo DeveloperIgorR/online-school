@@ -20,3 +20,10 @@
 .ant-menu-dark .ant-menu-inline.ant-menu-sub {
     background: #29625f;
 }
+.ant-checkbox{
+    color: #000;
+}
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #29625f;
+    border-color: #29625f;
+}
