@@ -4,7 +4,7 @@ import AppRouter from "./components/AppRouter/AppRouter"
 import { AppContext } from "./context/context"
 
 function App() {
-const[isAuth,setIsAuth] = useState(false)
+const[isAuth,setIsAuth] = useState(true)
 
   return (
     <AppContext.Provider value={{

@@ -33,7 +33,7 @@ const Dashboard = () => {
 
   async function getStudentByName(serchName) {
     try {      
-      const response = await instance.get(`/students/search/${serchName}`)      
+      const response = await instance.get(`/students/search/${serchName.length !== 0 ? serchName : null}`)      
       setStudents(response.data)
     }
     catch (e) {
