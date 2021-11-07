@@ -8,11 +8,11 @@ import FormItem from 'antd/lib/form/FormItem'
 
 const Authorization = () => {
 
-    const [email,setEmail] = useState('')
-    const [password,setPassword] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const [visible, setVisible] = useState(false)
     const [confirmLoading, setConfirmLoading] = useState(false)
-    console.log(email,password)
+    console.log(email, password)
     const handleCancel = () => {
         setVisible(false)
     }
@@ -24,23 +24,26 @@ const Authorization = () => {
         catch (e) {
             console.log(e)
         }
-        finally{
+        finally {
 
-        }        
+        }
     }
 
     async function createUser() {
         try {
-            const response = await instance.post()
-        }catch (e) {
+            const response = await instance.post(`users/create`, {
+                email,
+                password
+            })
+        } catch (e) {
             console.log(e)
         }
-        finally{
+        finally {
             setTimeout(() => {
                 setVisible(false)
                 setConfirmLoading(false)
-              },)
-        }        
+            })
+        }
     }
 
     return (
@@ -98,10 +101,10 @@ const Authorization = () => {
                 width={350}
             >
                 <FormItem>
-                    <Input placeholder="Введите email" value={email} onChange={event => setEmail(event.target.value)}/>
+                    <Input placeholder="Введите email" value={email} onChange={event => setEmail(event.target.value)} />
                 </FormItem>
                 <FormItem>
-                    <Input placeholder="Введите пароль" value={password} onChange={event => setPassword(event.target.value)}/>
+                    <Input placeholder="Введите пароль" value={password} onChange={event => setPassword(event.target.value)} />
                 </FormItem>
             </Modal>
         </>
