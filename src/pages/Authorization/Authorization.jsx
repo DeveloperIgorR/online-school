@@ -31,10 +31,12 @@ const Authorization = () => {
 
     async function createUser() {
         try {
-            const response = await instance.post(`users/create`, {
+            const response = await instance.post(`users/registration`, {
                 email,
                 password
             })
+            setEmail('')
+            setPassword('')
         } catch (e) {
             console.log(e)
         }
