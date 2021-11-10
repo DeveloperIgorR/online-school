@@ -12,6 +12,7 @@ const Authorization = () => {
     const [password, setPassword] = useState('')
     const [visible, setVisible] = useState(false)
     const [confirmLoading, setConfirmLoading] = useState(false)
+    const [user, setUser] = useState('')
     console.log(email, password)
     const handleCancel = () => {
         setVisible(false)
@@ -19,7 +20,12 @@ const Authorization = () => {
 
     async function userAuth() {
         try {
-            const response = await instance.post()
+            const response = await instance.post(`api/auth`, {
+                email,
+                password
+            })
+            setUser(response.data.user)
+            localStorage.setItem('token',response.data.token)
         }
         catch (e) {
             console.log(e)
