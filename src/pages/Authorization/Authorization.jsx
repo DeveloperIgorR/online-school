@@ -21,20 +21,21 @@ const Authorization = () => {
     }
 
     async function userAuth() {
-        try {
-            const response = await instance.post(`api/auth`, {
+        try {            
+            const response = await instance.post(`/auth`, {
                 email,
                 password
-            })
+            })  
+            setEmail('')
+            setPassword('')       
             setUser(response.data.user)
             localStorage.setItem('token',response.data.token)
+            setIsAuth(true)
         }
         catch (e) {
             console.log(e)
         }
-        finally {
-            setIsAuth(true)
-        }
+        
     }
 
     async function createUser() {
@@ -70,7 +71,7 @@ const Authorization = () => {
                     rules={[{ required: true, message: 'Введите ваш Логин!' }]}
                 >
                     <Input
-                        placeholder="Логин"
+                        placeholder="Логин" value={email} onChange={event => setEmail(event.target.value)}
                     />
                 </Form.Item>
 
@@ -80,7 +81,7 @@ const Authorization = () => {
                 >
                     <Input
                         type="password"
-                        placeholder="Пароль"
+                        placeholder="Пароль" value={password} onChange={event => setPassword(event.target.value)}
                     />
                 </Form.Item>
 
