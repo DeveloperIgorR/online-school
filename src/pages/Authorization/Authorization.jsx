@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Form, Input, Button, Checkbox, Modal } from 'antd'
 import a from './Authorization.module.css'
 import { instance } from '../../services/instance'
@@ -14,8 +14,17 @@ const Authorization = () => {
     const [visible, setVisible] = useState(false)
     const [confirmLoading, setConfirmLoading] = useState(false)
     const [user, setUser] = useState('')
+    const[formValid,setFormValid] = useState(false)
     const {isAuth, setIsAuth} = useContext(AppContext)
-    console.log(email, password)
+
+    useEffect (() => {
+        if(!email || !password){
+            setFormValid(false)
+        } else {
+            setFormValid(true)
+        }
+    },[email,password])
+    
     const handleCancel = () => {
         setVisible(false)
     }
@@ -93,7 +102,7 @@ const Authorization = () => {
                 </Form.Item>
 
                 <Form.Item>
-                    <Button onClick={() => userAuth()} type="primary" htmlType="submit">
+                    <Button disabled={!formValid} onClick={() => userAuth()} type="primary" htmlType="submit">
                         Войти
                     </Button>
                     Или
