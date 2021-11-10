@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Form, Input, Button, Checkbox, Modal } from 'antd'
 import a from './Authorization.module.css'
 import { instance } from '../../services/instance'
 import { useState } from 'react/cjs/react.development'
 import FormItem from 'antd/lib/form/FormItem'
+import { AppContext } from '../../context/context'
 
 
 const Authorization = () => {
@@ -13,6 +14,7 @@ const Authorization = () => {
     const [visible, setVisible] = useState(false)
     const [confirmLoading, setConfirmLoading] = useState(false)
     const [user, setUser] = useState('')
+    const {isAuth, setIsAuth} = useContext(AppContext)
     console.log(email, password)
     const handleCancel = () => {
         setVisible(false)
@@ -31,7 +33,7 @@ const Authorization = () => {
             console.log(e)
         }
         finally {
-
+            setIsAuth(true)
         }
     }
 
