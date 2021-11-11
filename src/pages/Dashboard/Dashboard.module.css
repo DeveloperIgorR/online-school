@@ -1,5 +1,5 @@
 .siteLayout{
-    background-color:#fff ;
+    background-color:#fff 
 }
 .siteLayoutBackground{    
     background-color:#fff
@@ -8,4 +8,10 @@
     margin: 15px;
     color: #fff;
     max-width: 250px;
+}
+.button{
+    background: #29625f;
+    color: #fff; 
+    border:none;
+    margin-top: 500px;
 }

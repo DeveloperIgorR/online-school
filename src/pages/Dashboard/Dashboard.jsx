@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Layout, Menu, Row, Col } from 'antd'
+import { Layout, Menu, Row, Col, Button} from 'antd'
+import { LogoutOutlined } from '@ant-design/icons'
 import d from './Dashboard.module.css'
 import TopHeader from '../../components/Header/Header'
 import MainTable from '../../components/MainTable/MainTable'
@@ -57,6 +58,7 @@ const Dashboard = () => {
           <Menu.Item key="5" title="Задачи">Задачи</Menu.Item>
           <Menu.Item key="6" title="Чеклисты">Чеклисты</Menu.Item>
         </Menu>
+        <Button className={d.button} icon={<LogoutOutlined />}>Выйти</Button>
       </Sider>
       <Layout className={d.siteLayout}>
         <Header className={d.siteLayoutBackground}>

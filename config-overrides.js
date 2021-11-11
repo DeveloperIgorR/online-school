@@ -10,7 +10,8 @@ module.exports = override(
         lessOptions: {
             javascriptEnabled: true,
             modifyVars: {
-                "@primary-color": "#29625f",//  тут меняем стили                
+                "@primary-color": "#29625f",//  тут меняем стили 
+                "@font-size-base": "16px"              
             }
         }
     }),
