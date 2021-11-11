@@ -5,6 +5,7 @@ import a from './Authorization.module.css'
 import { instance } from '../../services/instance'
 import { useState } from 'react/cjs/react.development'
 import FormItem from 'antd/lib/form/FormItem'
+import { AppContext } from '../../context/context'
 
 
 const Authorization = () => {
@@ -14,7 +15,8 @@ const Authorization = () => {
     const [visible, setVisible] = useState(false)
     const [confirmLoading, setConfirmLoading] = useState(false)
     const [user, setUser] = useState('')
-    const[formValid,setFormValid] = useState(false)    
+    const[formValid,setFormValid] = useState(false) 
+    const {isAuth, setIsAuth} = useContext(AppContext)   
 
     useEffect (() => {
         if(!email || !password){
@@ -40,7 +42,8 @@ const Authorization = () => {
                 openNotification(response.data.message)
             } else {     
             setUser(response.data.user)
-            localStorage.setItem('token',response.data.token)            
+            localStorage.setItem('token',response.data.token)  
+            setIsAuth(true)
             }
         }
         catch (e) {

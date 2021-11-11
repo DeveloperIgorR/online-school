@@ -6,13 +6,16 @@ import TopHeader from '../../components/Header/Header'
 import MainTable from '../../components/MainTable/MainTable'
 import { Link } from 'react-router-dom'
 import { instance } from '../../services/instance'
+import { useContext } from 'react/cjs/react.development'
+import { AppContext } from '../../context/context'
 
 const Dashboard = () => {
   const { Header, Content, Footer, Sider } = Layout
   const { SubMenu } = Menu
   const [collapsed, onCollapse] = useState(false)
   const [students, setStudents] = useState([])
-  const [serchName, setSearchName] = useState('')  
+  const [serchName, setSearchName] = useState('') 
+  const {isAuth, setIsAuth} = useContext(AppContext)
 
   useEffect(() => {
     getStudents()
@@ -42,6 +45,11 @@ const Dashboard = () => {
     }    
   }
 
+  const logOut = () => {
+    localStorage.clear()
+    setIsAuth(false)    
+  }
+
   return (
     <Layout style={{minHeight: '100vh' }}>
       <Sider  >
@@ -58,7 +66,7 @@ const Dashboard = () => {
           <Menu.Item key="5" title="Задачи">Задачи</Menu.Item>
           <Menu.Item key="6" title="Чеклисты">Чеклисты</Menu.Item>
         </Menu>
-        <Button className={d.button} icon={<LogoutOutlined />}>Выйти</Button>
+        <Button className={d.button} icon={<LogoutOutlined />} onClick={() => logOut()}>Выйти</Button>
       </Sider>
       <Layout className={d.siteLayout}>
         <Header className={d.siteLayoutBackground}>

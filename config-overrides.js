@@ -11,7 +11,7 @@ module.exports = override(
             javascriptEnabled: true,
             modifyVars: {
                 "@primary-color": "#29625f",//  тут меняем стили 
-                "@font-size-base": "16px"              
+                "@font-size-base": "15px"              
             }
         }
     }),
