@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react'
-import { Form, Input, Button, Checkbox, Modal } from 'antd'
+import { Form, Input, Button, Checkbox, Modal, notification } from 'antd'
+import { FrownOutlined } from '@ant-design/icons'
 import a from './Authorization.module.css'
 import { instance } from '../../services/instance'
 import { useState } from 'react/cjs/react.development'
@@ -34,12 +35,16 @@ const Authorization = () => {
             const response = await instance.post(`/auth`, {
                 email,
                 password
-            })  
+            })
             setEmail('')
-            setPassword('')       
+            setPassword('')
+            if(response.data.token === null){
+                openNotification(response.data.message)
+            } else {     
             setUser(response.data.user)
             localStorage.setItem('token',response.data.token)
             setIsAuth(true)
+            }
         }
         catch (e) {
             console.log(e)
@@ -65,6 +70,15 @@ const Authorization = () => {
             })
         }
     }
+
+    const openNotification = (message) => {
+        notification.open({
+          message: 'Ошибка авторизации',
+          description:
+            `${message}`,
+          icon: <FrownOutlined style={{ color: '#108ee9' }} />,
+        })
+      }
 
     return (
         <>
