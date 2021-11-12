@@ -15,12 +15,8 @@ const Authorization = () => {
     const [visible, setVisible] = useState(false)
     const [confirmLoading, setConfirmLoading] = useState(false)
     const [user, setUser] = useState('')    
-    const {isAuth, setIsAuth} = useContext(AppContext)  
-
+    const {isAuth, setIsAuth} = useContext(AppContext)      
     
-    const handleCancel = () => {
-        setVisible(false)
-    }
 
     async function userAuth(values) {
         try {            
@@ -71,6 +67,10 @@ const Authorization = () => {
         })
       }
 
+    const handleCancel = () => {
+        setVisible(false)
+    }  
+
     return (
         <>
             <h1 className={a.name}>ReactDevelopersSchool</h1>
@@ -104,11 +104,11 @@ const Authorization = () => {
                     <Form.Item name="remember" valuePropName="checked" noStyle>
                         <Checkbox>Запомнить меня</Checkbox>
                     </Form.Item>
-                    <a>Забыли пароль?</a>
+                    <a className={a.loginForgot}>Забыли пароль?</a>
                 </Form.Item>
 
                 <Form.Item>
-                    <Button   type="primary" htmlType="submit">
+                    <Button   type="primary" htmlType="submit" >
                         Войти
                     </Button>
                     Или
