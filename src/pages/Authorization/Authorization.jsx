@@ -133,6 +133,7 @@ const Authorization = () => {
                     <Input placeholder="Введите пароль" value={password} onChange={event => setPassword(event.target.value)} />
                 </FormItem>
             </Modal>
+            
         </>
     );
 }
