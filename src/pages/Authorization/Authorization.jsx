@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { Form, Input, Button, Checkbox, Modal, notification } from 'antd'
 import { FrownOutlined } from '@ant-design/icons'
 import a from './Authorization.module.css'
@@ -14,10 +14,9 @@ const Authorization = () => {
     const [password, setPassword] = useState('')
     const [visible, setVisible] = useState(false)
     const [confirmLoading, setConfirmLoading] = useState(false)
-    const [user, setUser] = useState('')
-    const[formValid,setFormValid] = useState(false) 
+    const [user, setUser] = useState('')    
     const {isAuth, setIsAuth} = useContext(AppContext)  
-        
+
     
     const handleCancel = () => {
         setVisible(false)
