@@ -35,9 +35,7 @@ const Authorization = () => {
             const response = await instance.post(`/auth`, {
                 email,
                 password
-            })
-            setEmail('')
-            setPassword('')
+            })            
             if(response.data.token === null){
                 openNotification(response.data.message)
             } else {     
@@ -88,23 +86,24 @@ const Authorization = () => {
                 name="normal_login"
                 className={a.loginForm}
                 initialValues={{ remember: true }}
+                onFinish={userAuth}
             >
                 <Form.Item
-                    name="Логин:"
+                    name="email"
                     rules={[{ required: true, message: 'Введите ваш Логин!' }]}
                 >
                     <Input
-                        placeholder="Логин" value={email} onChange={event => setEmail(event.target.value)}
+                        placeholder="Логин" 
                     />
                 </Form.Item>
 
                 <Form.Item
-                    name="Пароль:"
+                    name="password"
                     rules={[{ required: true, message: 'Введите ваш Пароль!' }]}
                 >
                     <Input
                         type="password"
-                        placeholder="Пароль" value={password} onChange={event => setPassword(event.target.value)}
+                        placeholder="Пароль" 
                     />
                 </Form.Item>
 
@@ -116,7 +115,7 @@ const Authorization = () => {
                 </Form.Item>
 
                 <Form.Item>
-                    <Button disabled={!formValid} onClick={() => userAuth()} type="primary" htmlType="submit">
+                    <Button disabled={!formValid}  type="primary" htmlType="submit">
                         Войти
                     </Button>
                     Или
