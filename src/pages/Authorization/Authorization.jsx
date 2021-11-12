@@ -16,25 +16,18 @@ const Authorization = () => {
     const [confirmLoading, setConfirmLoading] = useState(false)
     const [user, setUser] = useState('')
     const[formValid,setFormValid] = useState(false) 
-    const {isAuth, setIsAuth} = useContext(AppContext)   
-
-    // useEffect (() => {
-    //     if(!email || !password){
-    //         setFormValid(false)
-    //     } else {
-    //         setFormValid(true)
-    //     }
-    // },[email,password])
+    const {isAuth, setIsAuth} = useContext(AppContext)  
+        
     
     const handleCancel = () => {
         setVisible(false)
     }
 
-    async function userAuth() {
+    async function userAuth(values) {
         try {            
             const response = await instance.post(`/auth`, {
-                email,
-                password
+                email:`${values.login}`,
+                password:`${values.pass}`
             })            
             if(response.data.token === null){
                 openNotification(response.data.message)
@@ -90,7 +83,7 @@ const Authorization = () => {
                 onFinish={userAuth}
             >
                 <Form.Item
-                    name="email"
+                    name="login"
                     rules={[{ required: true, message: 'Введите ваш Логин!' }]}
                 >
                     <Input
@@ -99,7 +92,7 @@ const Authorization = () => {
                 </Form.Item>
 
                 <Form.Item
-                    name="password"
+                    name="pass"
                     rules={[{ required: true, message: 'Введите ваш Пароль!' }]}
                 >
                     <Input
