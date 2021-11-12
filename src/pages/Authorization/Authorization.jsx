@@ -18,13 +18,13 @@ const Authorization = () => {
     const[formValid,setFormValid] = useState(false) 
     const {isAuth, setIsAuth} = useContext(AppContext)   
 
-    useEffect (() => {
-        if(!email || !password){
-            setFormValid(false)
-        } else {
-            setFormValid(true)
-        }
-    },[email,password])
+    // useEffect (() => {
+    //     if(!email || !password){
+    //         setFormValid(false)
+    //     } else {
+    //         setFormValid(true)
+    //     }
+    // },[email,password])
     
     const handleCancel = () => {
         setVisible(false)
@@ -38,7 +38,8 @@ const Authorization = () => {
             })            
             if(response.data.token === null){
                 openNotification(response.data.message)
-            } else {     
+            } else {  
+                console.log(response.data.token)   
             setUser(response.data.user)
             localStorage.setItem('token',response.data.token)  
             setIsAuth(true)
@@ -115,7 +116,7 @@ const Authorization = () => {
                 </Form.Item>
 
                 <Form.Item>
-                    <Button disabled={!formValid}  type="primary" htmlType="submit">
+                    <Button   type="primary" htmlType="submit">
                         Войти
                     </Button>
                     Или
