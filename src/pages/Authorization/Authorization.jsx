@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Form, Input, Button, Checkbox, Modal, notification, Image } from 'antd'
-import { FrownOutlined } from '@ant-design/icons'
+import { FrownOutlined, SmileOutlined } from '@ant-design/icons'
 import a from './Authorization.module.css'
 import { instance } from '../../services/instance'
 import { useState } from 'react/cjs/react.development'
@@ -37,6 +37,9 @@ const Authorization = () => {
         catch (e) {
             console.log(e)
         }
+        finally{
+            
+        }
         
     }
 
@@ -45,13 +48,14 @@ const Authorization = () => {
             const response = await instance.post(`users/registration`, {
                 email,
                 password
-            })
-            setEmail('')
-            setPassword('')
+            })            
+            createNotificationSuccess()
         } catch (e) {
             createNotificationError(e)
         }
         finally {
+            setEmail('')
+            setPassword('')
             setVisible(false)
             setConfirmLoading(false)
         }
@@ -62,7 +66,7 @@ const Authorization = () => {
           message: 'Ошибка авторизации',
           description:
             `${message}`,
-          icon: <FrownOutlined style={{ color: '#108ee9' }} />,
+          icon: <FrownOutlined style={{ color: '#29625f' }} />,
         })
       }
 
@@ -71,7 +75,14 @@ const Authorization = () => {
           message: 'Введены неверные данные',
           description:
             `${message}`,
-          icon: <FrownOutlined style={{ color: '#108ee9' }} />,
+          icon: <FrownOutlined style={{ color: '#29625f' }} />,
+        })
+      }
+
+    const createNotificationSuccess = () => {
+        notification.open({
+          message: 'Вы успешно зарегистрированы!',          
+          icon: <SmileOutlined style={{ color: '#29625f' }} />,
         })
       }
 
