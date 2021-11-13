@@ -49,7 +49,7 @@ const Authorization = () => {
             setEmail('')
             setPassword('')
         } catch (e) {
-            console.log(e)
+            createNotificationError(e)
         }
         finally {
             setVisible(false)
@@ -60,6 +60,15 @@ const Authorization = () => {
     const openNotification = (message) => {
         notification.open({
           message: 'Ошибка авторизации',
+          description:
+            `${message}`,
+          icon: <FrownOutlined style={{ color: '#108ee9' }} />,
+        })
+      }
+
+    const createNotificationError = (message) => {
+        notification.open({
+          message: 'Введены неверные данные',
           description:
             `${message}`,
           icon: <FrownOutlined style={{ color: '#108ee9' }} />,
