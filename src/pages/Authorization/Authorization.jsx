@@ -21,12 +21,12 @@ const Authorization = () => {
     const { isAuth, setIsAuth } = useContext(AppContext)
 
 
-    async function userAuth(values) {
+    async function userAuth({login, pass}) {
         setFetching(true)
         try {
             const response = await instance.post(`/auth`, {
-                email: `${values.login}`,
-                password: `${values.pass}`
+                email: `${login}`,
+                password: `${pass}`
             })
             if (response.data.token === null) {
                 openNotification(response.data.message)
@@ -98,7 +98,7 @@ const Authorization = () => {
     return (
         <>
             {fetching
-                ? <div style={{ display: 'flex', justifyContent: 'center', marginTop: '250px' }}><Loader/></div>
+                ? <div style={{ display: 'flex', justifyContent: 'center', marginTop: '250px' }}><Loader /></div>
                 : <>
                     <h1 className={a.name}>ReactDevelopersSchool</h1>
                     <h2 className={a.in}>Вход в личный кабинет</h2>
@@ -127,20 +127,17 @@ const Authorization = () => {
                             />
                         </Form.Item>
 
-                        <Form.Item>
-                            <Form.Item name="remember" valuePropName="checked" noStyle>
-                                <Checkbox>Запомнить меня</Checkbox>
-                            </Form.Item>
-                            <a className={a.loginForgot}>Забыли пароль?</a>
+                        <Form.Item name="remember" valuePropName="checked" noStyle>
+                            <Checkbox>Запомнить меня</Checkbox>
                         </Form.Item>
+                        <a className={a.loginForgot}>Забыли пароль?</a>
 
-                        <Form.Item>
-                            <Button type="primary" htmlType="submit" >
-                                Войти
-                            </Button>
-                            Или
-                            <a onClick={() => setVisible(true)}> Зарегистрироваться!</a>
-                        </Form.Item>
+                        <Button type="primary" htmlType="submit" >
+                            Войти
+                        </Button>
+                        Или
+                        <a onClick={() => setVisible(true)}> Зарегистрироваться!</a>
+
                     </Form>
                     <Modal
                         visible={visible}
