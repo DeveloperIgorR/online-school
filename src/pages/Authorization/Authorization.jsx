@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
-import { Form, Input, Button, Checkbox, Modal, notification } from 'antd'
+import { Form, Input, Button, Checkbox, Modal, notification, Image } from 'antd'
 import { FrownOutlined } from '@ant-design/icons'
 import a from './Authorization.module.css'
 import { instance } from '../../services/instance'
 import { useState } from 'react/cjs/react.development'
 import FormItem from 'antd/lib/form/FormItem'
 import { AppContext } from '../../context/context'
+import developer from '../../Assets/Images/dev.jpeg'
 
 
 const Authorization = () => {
@@ -51,10 +52,8 @@ const Authorization = () => {
             console.log(e)
         }
         finally {
-            setTimeout(() => {
-                setVisible(false)
-                setConfirmLoading(false)
-            })
+            setVisible(false)
+            setConfirmLoading(false)
         }
     }
 
@@ -133,7 +132,7 @@ const Authorization = () => {
                     <Input placeholder="Введите пароль" value={password} onChange={event => setPassword(event.target.value)} />
                 </FormItem>
             </Modal>
-            
+            {/* <Image width={200} src={developer}/> */}
         </>
     );
 }
