@@ -9,11 +9,8 @@ const Modules = () => {
     const [confirmLoading, setConfirmLoading] = useState(false)
 
     const handleOk = () => {
-        setConfirmLoading(true)
-        setTimeout(() => {
-            setVisible(false)
-            setConfirmLoading(false)
-        }, 2000)
+        setVisible(false)
+        setConfirmLoading(false)
     }
 
     const handleCancel = () => {

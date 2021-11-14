@@ -1,29 +1,24 @@
 import React, { useState } from 'react'
-import { Input, Typography, Checkbox, Row, Col } from 'antd'
-import { green } from '@ant-design/colors'
+import { Input, Typography, Row, Col } from 'antd'
+import { TwitterPicker } from 'react-color'
 
 const CreateModule = () => {
 
-    const [check,setCheck] = useState(false)    
+    const [block, setBlock] = useState('')
+    const [color,setColor] = useState('#FF6900') 
+    console.log(color,block)   
 
     return (
         <>
             <Typography.Title level={5}>Название:</Typography.Title>
-            <Input style={{ width: 260 }} />
+            <Input value={block} onChange={event => setBlock(event.target.value)} style={{ width: 275 }} />
             <Typography.Title level={5}>Цвет:</Typography.Title>
             <Row>
                 <Col>
-                <Checkbox onChange={() => setCheck(true)}></Checkbox>
-                <Checkbox onChange={() => setCheck(true)}></Checkbox>
-                <Checkbox onChange={() => setCheck(true)}></Checkbox>
-                <Checkbox onChange={() => setCheck(true)}></Checkbox>
-                <Checkbox onChange={() => setCheck(true)}></Checkbox>
-                <Checkbox onChange={() => setCheck(true)}></Checkbox>
-                <Checkbox onChange={() => setCheck(true)}></Checkbox>
-                <Checkbox onChange={() => setCheck(true)}></Checkbox>
-                <Checkbox onChange={() => setCheck(true)}></Checkbox>
-                <Checkbox onChange={() => setCheck(true)}></Checkbox>
-                <Checkbox onChange={() => setCheck(true)}></Checkbox>                
+                <TwitterPicker
+                color={color}
+                onChangeComplete={color => setColor(color)}
+                />             
                 </Col>
             </Row>
         </>
