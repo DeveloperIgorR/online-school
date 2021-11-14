@@ -1,6 +1,7 @@
 import { Form, Input, Button, Checkbox } from 'antd'
+import l from './LoginForm.module.css'
 
-const LoginForm = () => {
+const LoginForm = ({userAuth, setVisible}) => {
     return (
         <>
             <Form
