@@ -129,8 +129,7 @@ const Authorization = () => {
 
                         <Form.Item name="remember" valuePropName="checked" noStyle>
                             <Checkbox>Запомнить меня</Checkbox>
-                        </Form.Item>
-                        <a className={a.loginForgot}>Забыли пароль?</a>
+                        </Form.Item>                        
 
                         <Button type="primary" htmlType="submit" >
                             Войти
