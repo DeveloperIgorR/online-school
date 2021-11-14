@@ -2,13 +2,19 @@ import { Form, Input, Button, Checkbox } from 'antd'
 import l from './LoginForm.module.css'
 
 const LoginForm = ({userAuth, setVisible}) => {
+
+    const [form] = Form.useForm()
+    const onReset = () => {
+        form.resetFields()
+    }
+
     return (
         <>
             <Form
                 name="normal_login"
                 className={l.loginForm}
                 initialValues={{ remember: true }}
-                onFinish={userAuth}
+                onFinish={userAuth}                
             >
                 <Form.Item
                     name="login"
@@ -33,7 +39,7 @@ const LoginForm = ({userAuth, setVisible}) => {
                     <Checkbox>Запомнить меня</Checkbox>
                 </Form.Item>
 
-                <Button type="primary" htmlType="submit" >
+                <Button type="primary" htmlType="submit" onClick={onReset} >
                     Войти
                 </Button>
                 Или
