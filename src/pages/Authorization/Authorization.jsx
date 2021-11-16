@@ -4,7 +4,6 @@ import { FrownOutlined, SmileOutlined } from '@ant-design/icons'
 import a from './Authorization.module.css'
 import { instance } from '../../services/instance'
 import { useState } from 'react/cjs/react.development'
-import FormItem from 'antd/lib/form/FormItem'
 import { AppContext } from '../../context/context'
 import Loader from '../../components/Loader/Loader'
 import developer from '../../Assets/Images/dev.jpeg'
@@ -44,7 +43,6 @@ const Authorization = () => {
         finally {
             setFetching(false)
         }
-
     }
 
     async function createUser() {
@@ -94,6 +92,8 @@ const Authorization = () => {
 
     const handleCancel = () => {
         setVisible(false)
+        setEmail('')
+        setPassword('')
     }
 
     return (
@@ -115,12 +115,12 @@ const Authorization = () => {
                         okText={'Готово'}
                         width={350}
                     >
-                        <FormItem>
+                        <div className={a.reg} >
                             <Input placeholder="Введите email" value={email} onChange={event => setEmail(event.target.value)} />
-                        </FormItem>
-                        <FormItem>
+                        </div>
+                        <div>
                             <Input placeholder="Введите пароль" value={password} onChange={event => setPassword(event.target.value)} />
-                        </FormItem>
+                        </div>
                     </Modal>
                     {/* <Image width={200} src={developer}/> */}
                 </>
