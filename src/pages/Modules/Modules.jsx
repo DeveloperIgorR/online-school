@@ -7,6 +7,7 @@ const Modules = () => {
 
     const [visible, setVisible] = useState(false)
     const [confirmLoading, setConfirmLoading] = useState(false)
+    const modules = []
 
     const handleOk = () => {
         setVisible(false)
