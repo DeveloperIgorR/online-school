@@ -7,7 +7,8 @@ const Modules = () => {
 
     const [visible, setVisible] = useState(false)
     const [confirmLoading, setConfirmLoading] = useState(false)
-    const modules = []
+    const modules = [{title:'HTML/CSS',color:'volcano'},{title:'JS',color:'violet'},
+    {title:'React',color:'cyan'}, {title:'Node',color:'green'},{title:'Базы данных',color:'yellow'}]
 
     const handleOk = () => {
         setVisible(false)
