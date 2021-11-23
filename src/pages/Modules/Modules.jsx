@@ -30,7 +30,7 @@ const Modules = () => {
                 <Col xs={{ span: 5, offset: 1 }} md={{ span: 5, offset: 2 }}>
                     {modules.map((item) =>
                         <Badge.Ribbon color= {item.color} >
-                            <Card title= {item.title} size="default">
+                            <Card title= {item.title} size="default">                                
                             </Card>
                         </Badge.Ribbon>
                     )}
