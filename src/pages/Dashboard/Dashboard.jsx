@@ -16,6 +16,13 @@ const Dashboard = () => {
   const [students, setStudents] = useState([])
   const [serchName, setSearchName] = useState('') 
   const {isAuth, setIsAuth} = useContext(AppContext)
+  const itemsMemu = [
+    {name:'Студенты', route:'user/users'},
+    {name:'Модули', route:'user/users'},
+    {name:'Теория', route:'user/users'},
+    {name:'Задачи', route:'user/users'},
+    {name:'Чеклисты', route:'user/users'}
+  ]
 
   useEffect(() => {
     getStudents()
