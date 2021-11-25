@@ -40,11 +40,10 @@ const Dashboard = () => {
                 <SubMenu key="sub1" title={name}>
                   {subItems &&
                     subItems.map(({ name, route }, index) =>
-                      <MenuItem>
+                      <MenuItem key = {index + 1} onClick = {() => goHistory(history,route)}>
                         {name}
                       </MenuItem>
                     )
-
                   }
                 </SubMenu>
               ) : (
