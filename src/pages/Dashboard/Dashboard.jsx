@@ -18,10 +18,10 @@ const Dashboard = () => {
   const {isAuth, setIsAuth} = useContext(AppContext)
   const itemsMemu = [
     {name:'Студенты', route:'user/users'},
-    {name:'Модули', route:'user/users'},
-    {name:'Теория', route:'user/users'},
-    {name:'Задачи', route:'user/users'},
-    {name:'Чеклисты', route:'user/users'}
+    {name:'Модули', route:'user/modules'},
+    {name:'Теория', route:'user/theory'},
+    {name:'Задачи', route:'user/tasks'},
+    {name:'Чеклисты', route:'user/checklists'}
   ]
 
   useEffect(() => {
