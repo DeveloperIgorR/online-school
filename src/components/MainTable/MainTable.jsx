@@ -1,24 +1,50 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Table, Tag, Space, Typography, Input, Button, Modal } from 'antd'
 import t from './MainTable.module.css'
 import CreateStudent from '../CreateStudent/CreateStudent'
 import { instance } from '../../services/instance'
 const { Search } = Input
 
-const MainTable = ({ students, setStudents, setSearchName }) => {
+const MainTable = () => {
 
   const [visible, setVisible] = useState(false)
   const [confirmLoading, setConfirmLoading] = useState(false)
-  const handleCancel = () => {
-    setVisible(false)
-  }
-
   const [name, setName] = useState('')
   const [Telegram, setTelegram] = useState('')
   const [Instagram, setInstagram] = useState('')
   const [date, setDate] = useState('')
   const [login, setLogin] = useState('')
-  const [modules, setModules] = useState([])  
+  const [modules, setModules] = useState([]) 
+  const [students, setStudents] = useState([])
+  const [serchName, setSearchName] = useState('')
+  
+  useEffect(() => {
+    getStudents()
+  }, [])
+
+  useEffect(() => {
+    getStudentByName(serchName)
+  }, [serchName])   
+
+  async function getStudents() {
+    try {
+      const response = await instance.get(`/students`)
+      setStudents(response.data)
+    }
+    catch (e) {
+      console.log(e)
+    }
+  }
+
+  async function getStudentByName(serchName) {
+    try {      
+      const response = await instance.get(`/students/search/${serchName.length !== 0 ? serchName : null}`)      
+      setStudents(response.data)
+    }
+    catch (e) {
+      console.log(e)
+    }    
+  }
 
   async function createStudent() {
     setConfirmLoading(true)
@@ -56,6 +82,10 @@ const MainTable = ({ students, setStudents, setSearchName }) => {
       console.log(e)
     }
   }  
+
+  const handleCancel = () => {
+    setVisible(false)
+  }
 
   const dataSource = students.map(item => ({ ...item, key: item._id }))
 

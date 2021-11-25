@@ -1,69 +1,58 @@
-import React, { useEffect, useState } from 'react'
-import { Layout, Menu, Row, Col, Button} from 'antd'
+import React, { useState } from 'react'
+import { Layout, Menu, Row, Col, Button } from 'antd'
 import { ExportOutlined } from '@ant-design/icons'
 import d from './Dashboard.module.css'
 import TopHeader from '../../components/Header/Header'
 import MainTable from '../../components/MainTable/MainTable'
 import { Link } from 'react-router-dom'
-import { instance } from '../../services/instance'
 import { useContext } from 'react/cjs/react.development'
 import { AppContext } from '../../context/context'
+import AppRouter from '../../components/AppRouter/AppRouter'
+import MenuItem from 'antd/lib/menu/MenuItem'
 
 const Dashboard = () => {
   const { Header, Content, Footer, Sider } = Layout
   const { SubMenu } = Menu
-  const [collapsed, onCollapse] = useState(false)
-  const [students, setStudents] = useState([])
-  const [serchName, setSearchName] = useState('') 
-  const {isAuth, setIsAuth} = useContext(AppContext)
+  const { isAuth, setIsAuth } = useContext(AppContext)
   const itemsMemu = [
-    {name:'Студенты', route:'user/users'},
-    {name:'Модули', route:'user/modules'},
-    {name:'Теория', route:'user/theory'},
-    {name:'Задачи', route:'user/tasks'},
-    {name:'Чеклисты', route:'user/checklists'}
+    { name: 'Все пользователи', route: 'user/users' },
+    { name: 'Модули', route: 'user/modules' },
+    { name: 'Теория', route: 'user/theory' },
+    { name: 'Задачи', route: 'user/tasks' },
+    { name: 'Чеклисты', route: 'user/checklists' }
   ]
-
-  useEffect(() => {
-    getStudents()
-  }, [])
-
-  useEffect(() => {
-    getStudentByName(serchName)
-  }, [serchName]) 
-
-  async function getStudents() {
-    try {
-      const response = await instance.get(`/students`)
-      setStudents(response.data)
-    }
-    catch (e) {
-      console.log(e)
-    }
-  }
-
-  async function getStudentByName(serchName) {
-    try {      
-      const response = await instance.get(`/students/search/${serchName.length !== 0 ? serchName : null}`)      
-      setStudents(response.data)
-    }
-    catch (e) {
-      console.log(e)
-    }    
-  }
 
   const logOut = () => {
     localStorage.clear()
-    setIsAuth(false)    
+    setIsAuth(false)
   }
 
   return (
-    <Layout style={{minHeight: '100vh' }}>
+    <Layout style={{ minHeight: '100vh' }}>
       <Sider  >
         <div className={d.logo}>
           <h2>ReactDevelopers</h2>
         </div>
-        <Menu  theme="dark" defaultSelectedKeys={['1']} mode="inline">          
+        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+          {itemsMemu &&
+            itemsMemu.map(({ name, route, subItems }, index) =>
+              subItems ? (
+                <SubMenu key="sub1" title={name}>
+                  {subItems &&
+                    subItems.map(({ name, route }, index) =>
+                      <MenuItem>
+                        {name}
+                      </MenuItem>
+                    )
+
+                  }
+                </SubMenu>
+              ) : (
+                <MenuItem>
+
+                </MenuItem>
+              ),
+            )}
           <SubMenu key="sub1" title="Все пользователи">
             <Menu.Item key="1">Динамика студентов</Menu.Item>
             <Menu.Item key="2">Рейтинг благодарности</Menu.Item>
@@ -82,11 +71,8 @@ const Dashboard = () => {
         <Content style={{ margin: '0 16px' }}>
           <Row>
             <Col xs={24} md={{ span: 20, offset: 2 }}>
-              <MainTable
-                students={students}
-                setStudents={setStudents}
-                setSearchName={setSearchName}
-              />
+              <MainTable />
+              <AppRouter />
             </Col>
           </Row>
         </Content>
