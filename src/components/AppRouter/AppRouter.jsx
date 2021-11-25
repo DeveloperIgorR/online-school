@@ -23,7 +23,7 @@ const AppRouter = () => {
             exact={route.exact}
             key={route.path} />
         )}
-        <Redirect to='/' />
+        <Redirect to='/user/users' />
       </Switch>
       :
       <Switch>

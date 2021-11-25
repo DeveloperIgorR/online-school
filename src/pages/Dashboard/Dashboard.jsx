@@ -68,7 +68,7 @@ const Dashboard = () => {
             <Menu.Item key="1">Динамика студентов</Menu.Item>
             <Menu.Item key="2">Рейтинг благодарности</Menu.Item>
           </SubMenu>
-          <Menu.Item key="3" title="Модули">Модули<Link to='/modules' /></Menu.Item>
+          <Menu.Item key="3" title="Модули">Модули<Link to='/user/modules' /></Menu.Item>
           <Menu.Item key="4" title="Теория">Теория</Menu.Item>
           <Menu.Item key="5" title="Задачи">Задачи</Menu.Item>
           <Menu.Item key="6" title="Чеклисты">Чеклисты</Menu.Item>
