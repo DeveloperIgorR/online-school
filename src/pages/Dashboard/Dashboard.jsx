@@ -36,7 +36,7 @@ const Dashboard = () => {
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           {itemsMemu &&
             itemsMemu.map(({ name, route, subItems }, index) =>
-              subItems ? (
+              subItems ? 
                 <SubMenu key="sub1" title={name}>
                   {subItems &&
                     subItems.map(({ name, route }, index) =>
@@ -46,11 +46,10 @@ const Dashboard = () => {
                     )
                   }
                 </SubMenu>
-              ) : (
+               : 
                 <MenuItem key = {index} onClick ={() => goHistory(history,route)}>
                   {name}
-                </MenuItem>
-              ),
+                </MenuItem>              
             )}
           {/* <SubMenu key="sub1" title="Все пользователи">
             <Menu.Item key="1">Динамика студентов</Menu.Item>
