@@ -15,7 +15,13 @@ const Dashboard = () => {
   const { SubMenu } = Menu
   const { isAuth, setIsAuth } = useContext(AppContext)
   const itemsMemu = [
-    { name: 'Все пользователи', route: 'user/users' },
+    { name: 'Все пользователи',
+      route: 'user/users',
+      subItems:[
+        {name: 'Динамика студентов',route:'users/students'},
+        {name: 'Рейтинг благодарности',route:'users/rating'}
+      ]
+    },
     { name: 'Модули', route: 'user/modules' },
     { name: 'Теория', route: 'user/theory' },
     { name: 'Задачи', route: 'user/tasks' },
