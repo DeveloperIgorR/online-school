@@ -74,8 +74,7 @@ const Dashboard = () => {
         </Header>
         <Content style={{ margin: '0 16px' }}>
           <Row>
-            <Col xs={24} md={{ span: 20, offset: 2 }}>
-              <MainTable />
+            <Col xs={24} md={{ span: 20, offset: 2 }}>              
               <AppRouter />
             </Col>
           </Row>
