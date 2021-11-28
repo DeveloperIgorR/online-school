@@ -1,4 +1,3 @@
-import Dashboard from "../../pages/Dashboard/Dashboard"
 import Modules from "../../pages/Modules/Modules"
 import Theory from "../../pages/Theory/Theory"
 import Tasks from "../../pages/Tasks/Tasks"
