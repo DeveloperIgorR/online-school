@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { Layout, Menu, Row, Col, Button} from 'antd'
-import { ExportOutlined } from '@ant-design/icons'
-import d from './Dashboard.module.css'
-import TopHeader from '../../components/Header/Header'
 import MainTable from '../../components/MainTable/MainTable'
-import { Link } from 'react-router-dom'
 import { instance } from '../../services/instance'
 import { useContext } from 'react/cjs/react.development'
 import { AppContext } from '../../context/context'
+
 const Dashboard = () => {
-  const { Header, Content, Footer, Sider } = Layout
-  const { SubMenu } = Menu
-  const [collapsed, onCollapse] = useState(false)
+  
   const [students, setStudents] = useState([])
-  const [serchName, setSearchName] = useState('') 
-  const {isAuth, setIsAuth} = useContext(AppContext)
+  const [serchName, setSearchName] = useState('')
+  const { isAuth, setIsAuth } = useContext(AppContext)
+
   useEffect(() => {
     getStudents()
   }, [])
+
   useEffect(() => {
     getStudentByName(serchName)
-  }, [serchName]) 
+  }, [serchName])
+
   async function getStudents() {
     try {
       const response = await instance.get(`/students`)
@@ -30,61 +27,28 @@ const Dashboard = () => {
       console.log(e)
     }
   }
+
   async function getStudentByName(serchName) {
-    try {      
-      const response = await instance.get(`/students/search/${serchName.length !== 0 ? serchName : null}`)      
+    try {
+      const response = await instance.get(`/students/search/${serchName.length !== 0 ? serchName : null}`)
       setStudents(response.data)
     }
     catch (e) {
       console.log(e)
-    }    
+    }
   }
+
   const logOut = () => {
     localStorage.clear()
-    setIsAuth(false)    
+    setIsAuth(false)
   }
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
-      <Sider  >
-        <div className={d.logo}>
-          <h2>ReactDevelopers</h2>
-        </div>
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-          {itemsMemu &&
-            itemsMemu.map(({ name, route, subItems }, index) =>
-              subItems ? 
-                <SubMenu key="sub1" title={name}>
-                  {subItems &&
-                    subItems.map(({ name, route }, index) =>
-                      <MenuItem key = {index + 1} onClick = {() => goHistory(history,route)}>
-                        {name}
-                      </MenuItem>
-                    )
-                  }
-                </SubMenu>
-               : 
-                <MenuItem key = {index} onClick ={() => goHistory(history,route)}>
-                  {name}
-                </MenuItem>              
-            )}         
-        </Menu>
-        <Button className={d.button} icon={<ExportOutlined />} onClick={() => logOut()}>Выйти</Button>
-      </Sider>
-      <Layout className={d.siteLayout}>
-        <Header className={d.siteLayoutBackground}>
-          <TopHeader />
-        </Header>
-        <Content style={{ margin: '0 16px' }}>
-          <Row>
-            <Col xs={24} md={{ span: 20, offset: 2 }}>              
-              <AppRouter />
-            </Col>
-          </Row>
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>Made by ©DIR</Footer>
-      </Layout>
-    </Layout>
+    <MainTable
+      students={students}
+      setStudents={setStudents}
+      setSearchName={setSearchName}
+    />
   )
 }
 
