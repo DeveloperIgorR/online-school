@@ -37,12 +37,7 @@ const Dashboard = () => {
       console.log(e)
     }
   }
-
-  const logOut = () => {
-    localStorage.clear()
-    setIsAuth(false)
-  }
-
+  
   return (
     <MainTable
       students={students}
