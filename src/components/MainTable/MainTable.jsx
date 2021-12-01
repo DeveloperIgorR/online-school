@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Table, Tag, Space, Typography, Input, Button, Modal } from 'antd'
 import t from './MainTable.module.css'
 import CreateStudent from '../CreateStudent/CreateStudent'
@@ -14,37 +14,7 @@ const MainTable = () => {
   const [Instagram, setInstagram] = useState('')
   const [date, setDate] = useState('')
   const [login, setLogin] = useState('')
-  const [modules, setModules] = useState([]) 
-  const [students, setStudents] = useState([])
-  const [serchName, setSearchName] = useState('')
-  
-  useEffect(() => {
-    getStudents()
-  }, [])
-
-  useEffect(() => {
-    getStudentByName(serchName)
-  }, [serchName])   
-
-  async function getStudents() {
-    try {
-      const response = await instance.get(`/students`)
-      setStudents(response.data)
-    }
-    catch (e) {
-      console.log(e)
-    }
-  }
-
-  async function getStudentByName(serchName) {
-    try {      
-      const response = await instance.get(`/students/search/${serchName.length !== 0 ? serchName : null}`)      
-      setStudents(response.data)
-    }
-    catch (e) {
-      console.log(e)
-    }    
-  }
+  const [modules, setModules] = useState([])    
 
   async function createStudent() {
     setConfirmLoading(true)
