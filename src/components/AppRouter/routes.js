@@ -1,5 +1,6 @@
 import Modules from "../../pages/Modules/Modules"
 import Authorization from "../../pages/Authorization/Authorization"
+import Dashboard from "../../pages/Dashboard/Dashboard"
 
 export const privateRoutes = [
     {path: '/', component: Dashboard, exact:true},

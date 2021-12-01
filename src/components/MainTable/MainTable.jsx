@@ -5,7 +5,7 @@ import CreateStudent from '../CreateStudent/CreateStudent'
 import { instance } from '../../services/instance'
 const { Search } = Input
 
-const MainTable = () => {
+const MainTable = ({students, setStudents, setSearchName }) => {
 
   const [visible, setVisible] = useState(false)
   const [confirmLoading, setConfirmLoading] = useState(false)
@@ -13,8 +13,8 @@ const MainTable = () => {
   const [Telegram, setTelegram] = useState('')
   const [Instagram, setInstagram] = useState('')
   const [date, setDate] = useState('')
-  const [login, setLogin] = useState('')
-  const [modules, setModules] = useState([])    
+  const [login, setLogin] = useState('')  
+  const [modules, setModules] = useState([])   
 
   async function createStudent() {
     setConfirmLoading(true)
