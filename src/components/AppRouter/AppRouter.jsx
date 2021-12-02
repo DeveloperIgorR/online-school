@@ -34,7 +34,7 @@ const AppRouter = () => {
           </div>
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <SubMenu key="sub1" title="Все пользователи">
-              <Menu.Item key="1">Динамика студентов</Menu.Item>
+              <Menu.Item key="1">Динамика студентов<Link to='/'/></Menu.Item>
               <Menu.Item key="2">Рейтинг благодарности</Menu.Item>
             </SubMenu>
             <Menu.Item key="3" title="Модули">Модули<Link to='/modules' /></Menu.Item>
