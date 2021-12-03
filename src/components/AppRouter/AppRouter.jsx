@@ -38,9 +38,9 @@ const AppRouter = () => {
               <Menu.Item key="2">Рейтинг благодарности</Menu.Item>
             </SubMenu>
             <Menu.Item key="3" title="Модули">Модули<Link to='/modules'/></Menu.Item>
-            <Menu.Item key="4" title="Теория">Теория</Menu.Item><Link to='/theory' />
-            <Menu.Item key="5" title="Задачи">Задачи</Menu.Item><Link to='/tasks' />
-            <Menu.Item key="6" title="Чеклисты">Чеклисты</Menu.Item><Link to='/checklists' />
+            <Menu.Item key="4" title="Теория">Теория<Link to='/theory'/></Menu.Item>
+            <Menu.Item key="5" title="Задачи">Задачи<Link to='/tasks'/></Menu.Item>
+            <Menu.Item key="6" title="Чеклисты">Чеклисты<Link to='/checklists'/></Menu.Item>
           </Menu>
           <Button className={d.button} icon={<ExportOutlined />} onClick={() => logOut()}>Выйти</Button>
         </Sider>
