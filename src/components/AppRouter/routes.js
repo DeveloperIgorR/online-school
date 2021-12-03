@@ -1,10 +1,12 @@
 import Modules from "../../pages/Modules/Modules"
 import Authorization from "../../pages/Authorization/Authorization"
 import Dashboard from "../../pages/Dashboard/Dashboard"
+import Theory from "../../pages/Theory/Theory"
 
 export const privateRoutes = [
     {path: '/', component: Dashboard, exact:true},
-    {path: '/modules', component: Modules, exact:true} 
+    {path: '/modules', component: Modules, exact:true}, 
+    {path: '/theory', component: Theory, exact:true},
 ]
 
 export const publicRoutes = [
