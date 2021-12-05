@@ -3,6 +3,7 @@ import Authorization from "../../pages/Authorization/Authorization"
 import Dashboard from "../../pages/Dashboard/Dashboard"
 import Theory from "../../pages/Theory/Theory"
 import Tasks from "../../pages/Tasks/Tasks"
+import Checklists from "../../pages/Checklists/Checklists"
 
 export const privateRoutes = [
     {path: '/', component: Dashboard, exact:true},
