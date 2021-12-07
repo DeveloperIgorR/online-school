@@ -11,6 +11,7 @@ export const privateRoutes = [
     {path: '/tasks', component: Tasks, exact:true},
     {path: '/theory', component: Theory, exact:true},
     {path: '/checklists', component: Checklists, exact:true}
+    {path: '/checklists', component: Checklists, exact:true}
 ]
 
 export const publicRoutes = [
